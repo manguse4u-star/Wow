@@ -130,7 +130,7 @@ def main():
     put_timing(slide, M.Timing().build(items))
     slide.notes_slide.notes_text_frame.text = (
         "YOU (voice or on camera): \"Hi, I'm Edwin. Today, I'll explain seafloor spreading rates.\" "
-        "Click to go to the animation.")
+        "Click to continue.")
 
     def plain_slide():
         sl = prs.slides.add_slide(prs.slide_layouts[6])
