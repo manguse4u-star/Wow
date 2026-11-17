@@ -1,4 +1,39 @@
-# Spreading Rates — Narration & Timing Guide (Part 1, 0:00–0:25)
+# Spreading Rates — Narration & Timing Guide
+
+## ★ Recording flow (use `Spreading_Rates_Presentation.pptx`)
+
+| # | What | Source | Length | You say |
+|---|---|---|---|---|
+| 1 | Title, name, student number (fade in) | PPTX slide 1 | ~5 s (click when ready) | "Hi, I'm Edwin. Today, I'll explain seafloor spreading rates." |
+| 2 | Animation clip, auto-plays, no title | PPTX slide 2 = `video/Spreading_Rates_Animation_Clip.mp4` | 21.0 s (20 s + 1 s still hold on the final frame) | Voice-over, timed in the table below |
+| 3 | **CUT TO CAMERA**: paper-strip demonstration | your footage | ~25 s | "This cardboard is the ridge, and these strips are the seafloor on each side." Then: pull the strips, point out the matching stripes, work through 100 km ÷ 5 Myr = 2 cm/yr |
+| 4 | Key Concepts recap (cards fade in) | PPTX slide 3 | ~8 s | e.g. "So: new crust forms at the ridge, each side moves at the half-rate, and the stripes plus their ages give us the rate." |
+| 5 | References end card, auto-plays | PPTX slide 4 = `video/Spreading_Rates_References_EndCard.mp4` | 4 s | (silent) |
+
+Suggested budget: 5 + 20 + 25 + 8 ≈ 58 s of content, plus the 4 s references card. You are on camera for at least 20 s in step 3. If you also appear on camera during step 1 or step 4, that time counts as well.
+
+### Voice-over for the animation clip (clip time, seconds)
+
+| Clip time | On screen | Say |
+|---|---|---|
+| 0.0–0.5 | Still cross-section (lead-in) | — |
+| 0.7–1.9 | "Mid-Ocean Ridge" label | "At mid-ocean ridges," |
+| 2.4–3.4 | Plates start moving apart at 2.5 | "plates separate," |
+| 3.6–6.0 | Magma rising, new crust opening out; label at 5.4 | "and rising magma forms new oceanic crust." |
+| 7.0–7.5 | Cross-fade to half/full-rate diagram | — |
+| 8.0–9.6 | Left arrow, then right arrow | "Each side's motion" |
+| 9.6–11.0 | "Half-Spreading Rate · 2 cm/yr" | "is a half-spreading rate." |
+| 11.3–13.7 | Full-rate arrow, "4 cm/yr", "2 + 2 = 4 cm/yr" | "Together, they give the full separation rate." |
+| 14.0–14.5 | Cross-fade to the magnetic-stripe map | — |
+| 14.6–17.4 | Stripes form and move outward; legend | "Magnetic stripes record past field reversals." |
+| 18.3–19.9 | Matching bands outlined → becomes the paper-strip model | "Here's how the pattern forms." |
+| 20.0–21.0 | Still on the paper-strip model | → cut to camera anywhere in this second |
+
+*Clip time = old 25 s timeline − 5.0 s. The detailed per-animation tables below use the old 25 s timeline (`Spreading_Rates_PPT_25sec.mp4`, title included).*
+
+---
+
+# Detailed timing (original 25 s version, title included)
 
 All times are video time (seconds) in `Spreading_Rates_PPT_25sec.mp4`, which follows the PPTX timeline exactly.
 Each slide auto-advances; slides 2–4 enter with a 0.5 s smooth **Fade** (cross-fade, not through black).
@@ -113,7 +148,7 @@ Suggested Part 2 beats (about 35 s; speak them, don't read them):
 ---
 
 ## End card (after Part 2)
-`Spreading_Rates_References_EndCard.mp4`, 4 s, no narration: the heading and Harvard reference list fade in over a still background. Cut to it straight after your on-camera conclusion.
+`video/Spreading_Rates_References_EndCard.mp4`, 4 s, no narration: the heading and Harvard reference list fade in over a still background. Cut to it straight after your on-camera conclusion.
 
 ## On-screen text check (all permitted types)
 Title, subtitle, name, student number, and short diagram labels only: Mid-Ocean Ridge · Magma · New Oceanic Crust · Half-Spreading Rate · Full-Spreading Rate · 2 cm/yr · 4 cm/yr · relative to ridge · relative plate separation · 2 + 2 = 4 cm/yr · Illustrative values (symmetric spreading) · Magnetic Stripes · Normal Polarity · Reversed Polarity. Short Harvard in-text citations also appear on slides 2–4. No sentences or paragraphs.

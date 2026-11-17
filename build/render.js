@@ -180,6 +180,11 @@ async function main() {
       await page.evaluate((s) => window.show(s), svg);
       await page.screenshot({ path: path.join(dirP, `slide${i + 1}_final_state.png`) });
     }
+    {
+      const svg = await page.evaluate(() => window.svgAt(0, 3, 4.3));
+      await page.evaluate((s) => window.show(s), svg);
+      await page.screenshot({ path: path.join(dirP, 'slide4_magnetic_stripes_state.png') });
+    }
     // storyboard key frames every 1 s (1080p)
     const page1 = await mk(1);
     for (let T = 0.5; T < scene.total; T += 1.0) {
@@ -200,7 +205,8 @@ async function main() {
     await page2.screenshot({ path: path.join(OUT, 'slides_png', 'slide5_references_end_card.png') });
     const page = await mk(1);
     const n = Math.round(ec.adv * scene.fps);
-    const mp4 = path.join(OUT, 'Spreading_Rates_References_EndCard.mp4');
+    fs.mkdirSync(path.join(OUT, 'video'), { recursive: true });
+    const mp4 = path.join(OUT, 'video', 'Spreading_Rates_References_EndCard.mp4');
     const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(scene.fps), '-i', '-',
       '-c:v', 'libx264', '-preset', 'slow', '-crf', '15', '-pix_fmt', 'yuv420p', '-r', String(scene.fps),
       '-movflags', '+faststart', mp4], { stdio: ['pipe', 'inherit', 'inherit'] });
@@ -213,6 +219,44 @@ async function main() {
     ff.stdin.end();
     await new Promise((r) => ff.on('close', r));
     console.log('wrote', mp4);
+  }
+
+  async function encode(page, n, svgFor, mp4) {
+    const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(scene.fps), '-i', '-',
+      '-c:v', 'libx264', '-preset', 'slow', '-crf', '15', '-pix_fmt', 'yuv420p', '-r', String(scene.fps),
+      '-movflags', '+faststart', mp4], { stdio: ['pipe', 'inherit', 'inherit'] });
+    for (let f = 0; f < n; f++) {
+      const svg = await page.evaluate(svgFor, f / scene.fps);
+      await page.evaluate((s) => window.show(s), svg);
+      const buf = await page.screenshot({ type: 'png' });
+      if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once('drain', r));
+    }
+    ff.stdin.end();
+    await new Promise((r) => ff.on('close', r));
+    console.log('wrote', mp4);
+  }
+
+  // Demonstration clip for embedding in the presentation: no title/name, starts at the
+  // seafloor-spreading slide (0.5 s still lead-in), runs to the paper-strip model,
+  // then holds the last frame for 1 s (cutting room for the edit).
+  if (MODE === 'all' || MODE === '--clip') {
+    const page = await mk(1);
+    const LEAD = 0.5, BODY = scene.total - S[1].t0 - S[1].transition, TAIL = 1.0;
+    scene.clip = { lead: LEAD, body: BODY, tail: TAIL, total: LEAD + BODY + TAIL };
+    const n = Math.round(scene.clip.total * scene.fps);
+    fs.mkdirSync(path.join(OUT, 'video'), { recursive: true });
+    const clipFn = new Function('c', `
+      const S = window.SCENE.slides, L = ${LEAD}, B = ${BODY};
+      if (c < L) return window.svgAt(0, 1, 0);
+      if (c >= L + B - 1e-6) return window.svgAt(0, S.length - 1, S[S.length - 1].adv);
+      return window.svgAt(S[1].t0 + S[1].transition + (c - L));`);
+    await encode(page, n, clipFn, path.join(OUT, 'video', 'Spreading_Rates_Animation_Clip.mp4'));
+    // poster frame = first frame
+    const page2 = await mk(1);
+    const svg0 = await page2.evaluate(() => window.svgAt(0, 1, 0));
+    await page2.evaluate((s) => window.show(s), svg0);
+    await page2.screenshot({ path: path.join(OUT, 'video', 'clip_poster.png') });
+    fs.writeFileSync(path.join(__dirname, 'clip.json'), JSON.stringify(scene.clip));
   }
 
   if (MODE === 'all' || MODE === '--frames-only') {

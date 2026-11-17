@@ -1,15 +1,27 @@
 # Spreading Rates — Part 1 animation package (GEOL0012)
 
+## ★ Main file for recording: `Spreading_Rates_Presentation.pptx`
+| Slide | Content | Behaviour |
+|---|---|---|
+| 1 | Title · Edwin Wang · Student Number | Native fade-in animations; click to continue (you introduce yourself) |
+| 2 | **Embedded animation** `video/Spreading_Rates_Animation_Clip.mp4` (21 s; no title, starts straight at seafloor spreading, ends on the paper-strip model) | Plays automatically when the slide opens. In the edit, cut to your on-camera demo after it |
+| 3 | Key Concepts: three diagram cards + "Half-Spreading Rate = Distance ÷ Age" | Cards fade in automatically; for the recap after your demo |
+| 4 | **Embedded references end card** `video/Spreading_Rates_References_EndCard.mp4` (4 s, Harvard) | Plays automatically |
+
+Both videos are embedded in the PPTX (H.264 MP4, plays in PowerPoint 2013+ and Microsoft 365), so no separate files are needed when presenting. The flow and voice-over timings are at the top of `Narration_and_Timing_Guide.md`. Rebuild: `cd build && node render.js ../deliverables --clip && python3 make_presentation.py`.
+
+## Other files
+
 | Deliverable | File |
 |---|---|
-| A. Editable, animated PowerPoint (16:9, 4 slides, auto-timed, 25.0 s) | `Spreading_Rates_Animated.pptx` |
+| A. Fully editable, natively animated PowerPoint (source version: every diagram is shapes) (16:9, 4 slides, auto-timed, 25.0 s) | `Spreading_Rates_Animated.pptx` |
 | B. Animation video (1920×1080, 30 fps, 750 frames, 25.000 s, H.264, silent) | `Spreading_Rates_PPT_25sec.mp4` |
 | C. Slide PNGs (3840×2160, final state of each slide) | `slides_png/` |
 | C. Vector diagrams (SVG, final state of each slide, editable in Illustrator/Inkscape) | `assets_svg/` |
 | C. Storyboard frames, one per second (1080p) | `storyboard/` |
 | D. Narration script and exact timing | `Narration_and_Timing_Guide.md` (narration lines are also in each slide's Speaker Notes) |
 | E. References (Harvard, Cite Them Right) | `References.md` |
-| References end card, 4 s (place at the very end of the video, after Part 2) | `Spreading_Rates_References_EndCard.mp4` · `slides_png/slide5_references_end_card.png` · hidden slide 5 in the PPTX |
+| References end card, 4 s (place at the very end of the video, after Part 2) | `video/Spreading_Rates_References_EndCard.mp4` · `slides_png/slide5_references_end_card.png` · hidden slide 5 in the PPTX |
 | Final QC against brief §9 | `QC_Checklist.md` |
 
 ## What is in the PPTX
@@ -43,7 +55,7 @@ node render.js ../deliverables   # -> MP4, slide PNGs, SVGs, storyboard (needs p
 To put your student number in, edit the `"Student Number: [PLACEHOLDER]"` string in `scene.py` and rebuild.
 
 ## Editing-suite tips
-- Final order: Part 1 MP4 (0:00–0:25) → you on camera (0:25–1:00) → `Spreading_Rates_References_EndCard.mp4` (4 s). The end card is a credit-style reference frame, not narration, so it should not count as content overrun; if your marker counts every second, trim Part 2 by 2–3 s.
+- Final order: Part 1 MP4 (0:00–0:25) → you on camera (0:25–1:00) → `video/Spreading_Rates_References_EndCard.mp4` (4 s). The end card is a credit-style reference frame, not narration, so it should not count as content overrun; if your marker counts every second, trim Part 2 by 2–3 s.
 - Lay the voice-over on the MP4 using the timings in the guide.
 - Cut to camera at exactly 0:25.00. The last 0.2 s holds still on the paper-strip model, which gives you a clean cut point.
 - Fonts: Arial is used for maximum compatibility (Aptos is missing from older Office installs). To switch to Aptos, change `FONT` in `scene.py`.
