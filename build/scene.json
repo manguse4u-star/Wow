@@ -46,40 +46,6 @@
      ]
     },
     {
-     "kind": "ellipse",
-     "name": "Surface light",
-     "x": -140,
-     "y": -540,
-     "w": 2200,
-     "h": 840,
-     "fill": {
-      "type": "grad",
-      "angle": 90,
-      "stops": [
-       [
-        0,
-        "4FB3D9",
-        0.1
-       ],
-       [
-        1,
-        "4FB3D9",
-        0.0
-       ]
-      ]
-     },
-     "line": null,
-     "glow": null,
-     "soft": 160,
-     "fx": [],
-     "bbox": [
-      -140,
-      -540,
-      2200,
-      840
-     ]
-    },
-    {
      "kind": "group",
      "name": "Cross-section",
      "children": [
@@ -3928,40 +3894,6 @@
      ]
     },
     {
-     "kind": "ellipse",
-     "name": "Ridge highlight",
-     "x": 810,
-     "y": 558,
-     "w": 300,
-     "h": 92,
-     "fill": {
-      "type": "solid",
-      "color": "2EE6D6",
-      "a": 0.55
-     },
-     "line": null,
-     "glow": null,
-     "soft": 40,
-     "fx": [
-      {
-       "type": "fade_in",
-       "s": 1.2,
-       "d": 0.5
-      },
-      {
-       "type": "fade_out",
-       "s": 2.4,
-       "d": 0.8
-      }
-     ],
-     "bbox": [
-      810,
-      558,
-      300,
-      92
-     ]
-    },
-    {
      "kind": "poly",
      "name": "Ridge axis marker",
      "pts": [
@@ -4038,11 +3970,7 @@
       "a": 1.0
      },
      "line": null,
-     "glow": {
-      "color": "2EE6D6",
-      "r": 10,
-      "a": 0.45
-     },
+     "glow": null,
      "soft": null,
      "fx": [
       {
@@ -4107,11 +4035,7 @@
       "a": 1.0
      },
      "line": null,
-     "glow": {
-      "color": "2EE6D6",
-      "r": 10,
-      "a": 0.45
-     },
+     "glow": null,
      "soft": null,
      "fx": [
       {
@@ -4140,14 +4064,14 @@
      "kind": "text",
      "name": "Title",
      "text": "Spreading Rates",
-     "x": 260,
-     "y": 92,
+     "x": 120,
+     "y": 96,
      "w": 1400,
      "h": 120,
      "size": 66,
      "color": "F2F6FA",
      "bold": true,
-     "align": "ctr",
+     "align": "l",
      "a": 1.0,
      "fx": [
       {
@@ -4157,8 +4081,8 @@
       }
      ],
      "bbox": [
-      260,
-      92,
+      120,
+      96,
       1400,
       120
      ]
@@ -4167,14 +4091,14 @@
      "kind": "text",
      "name": "Subtitle",
      "text": "How Fast Is the Ocean Floor Moving?",
-     "x": 260,
-     "y": 226,
+     "x": 120,
+     "y": 222,
      "w": 1400,
      "h": 70,
      "size": 32,
      "color": "BFE9F2",
      "bold": false,
-     "align": "ctr",
+     "align": "l",
      "a": 1.0,
      "fx": [
       {
@@ -4184,8 +4108,8 @@
       }
      ],
      "bbox": [
-      260,
-      226,
+      120,
+      222,
       1400,
       70
      ]
@@ -4194,14 +4118,14 @@
      "kind": "text",
      "name": "Presenter name",
      "text": "Edwin Wang",
-     "x": 560,
+     "x": 120,
      "y": 330,
      "w": 800,
      "h": 50,
      "size": 24,
      "color": "F2F6FA",
      "bold": true,
-     "align": "ctr",
+     "align": "l",
      "a": 1.0,
      "fx": [
       {
@@ -4211,7 +4135,7 @@
       }
      ],
      "bbox": [
-      560,
+      120,
       330,
       800,
       50
@@ -4220,15 +4144,15 @@
     {
      "kind": "text",
      "name": "Student number",
-     "text": "Student Number: [PLACEHOLDER]",
-     "x": 460,
-     "y": 378,
+     "text": "Student Number: 25092450",
+     "x": 120,
+     "y": 386,
      "w": 1000,
      "h": 48,
      "size": 22,
      "color": "9FB3C8",
      "bold": false,
-     "align": "ctr",
+     "align": "l",
      "a": 1.0,
      "fx": [
       {
@@ -4238,8 +4162,8 @@
       }
      ],
      "bbox": [
-      460,
-      378,
+      120,
+      386,
       1000,
       48
      ]
@@ -4286,40 +4210,6 @@
       0,
       1920,
       1080
-     ]
-    },
-    {
-     "kind": "ellipse",
-     "name": "Surface light",
-     "x": -140,
-     "y": -540,
-     "w": 2200,
-     "h": 840,
-     "fill": {
-      "type": "grad",
-      "angle": 90,
-      "stops": [
-       [
-        0,
-        "4FB3D9",
-        0.1
-       ],
-       [
-        1,
-        "4FB3D9",
-        0.0
-       ]
-      ]
-     },
-     "line": null,
-     "glow": null,
-     "soft": 160,
-     "fx": [],
-     "bbox": [
-      -140,
-      -540,
-      2200,
-      840
      ]
     },
     {
@@ -7502,11 +7392,7 @@
         "a": 1.0
        },
        "line": null,
-       "glow": {
-        "color": "2EE6D6",
-        "r": 10,
-        "a": 0.45
-       },
+       "glow": null,
        "soft": null,
        "fx": [],
        "bbox": [
@@ -8956,11 +8842,7 @@
         "a": 1.0
        },
        "line": null,
-       "glow": {
-        "color": "2EE6D6",
-        "r": 10,
-        "a": 0.45
-       },
+       "glow": null,
        "soft": null,
        "fx": [],
        "bbox": [
@@ -9280,40 +9162,6 @@
       0,
       1920,
       1080
-     ]
-    },
-    {
-     "kind": "ellipse",
-     "name": "Surface light",
-     "x": -140,
-     "y": -540,
-     "w": 2200,
-     "h": 840,
-     "fill": {
-      "type": "grad",
-      "angle": 90,
-      "stops": [
-       [
-        0,
-        "4FB3D9",
-        0.1
-       ],
-       [
-        1,
-        "4FB3D9",
-        0.0
-       ]
-      ]
-     },
-     "line": null,
-     "glow": null,
-     "soft": 160,
-     "fx": [],
-     "bbox": [
-      -140,
-      -540,
-      2200,
-      840
      ]
     },
     {
@@ -14224,11 +14072,7 @@
       "a": 1.0
      },
      "line": null,
-     "glow": {
-      "color": "2EE6D6",
-      "r": 10,
-      "a": 0.5
-     },
+     "glow": null,
      "soft": null,
      "fx": [
       {
@@ -14285,11 +14129,7 @@
       "a": 1.0
      },
      "line": null,
-     "glow": {
-      "color": "2EE6D6",
-      "r": 10,
-      "a": 0.5
-     },
+     "glow": null,
      "soft": null,
      "fx": [
       {
@@ -14520,11 +14360,7 @@
       "a": 1.0
      },
      "line": null,
-     "glow": {
-      "color": "2EE6D6",
-      "r": 12,
-      "a": 0.55
-     },
+     "glow": null,
      "soft": null,
      "fx": [
       {
@@ -14622,41 +14458,6 @@
      ]
     },
     {
-     "kind": "rect",
-     "name": "Equation bg",
-     "x": 650,
-     "y": 880,
-     "w": 620,
-     "h": 100,
-     "r": 50,
-     "fill": {
-      "type": "solid",
-      "color": "061A33",
-      "a": 0.88
-     },
-     "line": {
-      "color": "2EE6D6",
-      "w": 2,
-      "a": 0.8,
-      "dash": null
-     },
-     "glow": null,
-     "soft": null,
-     "fx": [
-      {
-       "type": "fade_in",
-       "s": 5.0,
-       "d": 0.5
-      }
-     ],
-     "bbox": [
-      650,
-      880,
-      620,
-      100
-     ]
-    },
-    {
      "kind": "text",
      "name": "Equation: 2 + 2 = 4 cm/yr",
      "text": "2 + 2 = 4 cm/yr",
@@ -14686,7 +14487,7 @@
     {
      "kind": "text",
      "name": "Caption: illustrative values",
-     "text": "Illustrative values (symmetric spreading)",
+     "text": "Example values, symmetric ridge",
      "x": 1000,
      "y": 1004,
      "w": 880,
@@ -14779,40 +14580,6 @@
       0,
       1920,
       1080
-     ]
-    },
-    {
-     "kind": "ellipse",
-     "name": "Surface light",
-     "x": -140,
-     "y": -540,
-     "w": 2200,
-     "h": 840,
-     "fill": {
-      "type": "grad",
-      "angle": 90,
-      "stops": [
-       [
-        0,
-        "4FB3D9",
-        0.1
-       ],
-       [
-        1,
-        "4FB3D9",
-        0.0
-       ]
-      ]
-     },
-     "line": null,
-     "glow": null,
-     "soft": 160,
-     "fx": [],
-     "bbox": [
-      -140,
-      -540,
-      2200,
-      840
      ]
     },
     {
@@ -15361,7 +15128,7 @@
      "fill": {
       "type": "solid",
       "color": "FF8A1F",
-      "a": 0.45
+      "a": 0.3
      },
      "line": null,
      "glow": null,
@@ -15427,11 +15194,7 @@
       "a": 1.0,
       "dash": null
      },
-     "glow": {
-      "color": "2EE6D6",
-      "r": 10,
-      "a": 0.6
-     },
+     "glow": null,
      "soft": null,
      "fx": [
       {
@@ -15467,11 +15230,7 @@
       "a": 1.0,
       "dash": null
      },
-     "glow": {
-      "color": "2EE6D6",
-      "r": 10,
-      "a": 0.6
-     },
+     "glow": null,
      "soft": null,
      "fx": [
       {
@@ -16051,40 +15810,6 @@
      0,
      1920,
      1080
-    ]
-   },
-   {
-    "kind": "ellipse",
-    "name": "Surface light",
-    "x": -140,
-    "y": -540,
-    "w": 2200,
-    "h": 840,
-    "fill": {
-     "type": "grad",
-     "angle": 90,
-     "stops": [
-      [
-       0,
-       "4FB3D9",
-       0.1
-      ],
-      [
-       1,
-       "4FB3D9",
-       0.0
-      ]
-     ]
-    },
-    "line": null,
-    "glow": null,
-    "soft": 160,
-    "fx": [],
-    "bbox": [
-     -140,
-     -540,
-     2200,
-     840
     ]
    },
    {
