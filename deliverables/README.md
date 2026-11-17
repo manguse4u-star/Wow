@@ -55,7 +55,7 @@ node render.js ../deliverables   # -> MP4, slide PNGs, SVGs, storyboard (needs p
 To put your student number in, edit the `"Student Number: [PLACEHOLDER]"` string in `scene.py` and rebuild.
 
 ## Editing-suite tips
-- Final order: Part 1 MP4 (0:00–0:25) → you on camera (0:25–1:00) → `video/Spreading_Rates_References_EndCard.mp4` (4 s). The end card is a credit-style reference frame, not narration, so it should not count as content overrun; if your marker counts every second, trim Part 2 by 2–3 s.
+- Final order (recording deck): slide 1 intro → slide 2 animation clip → your on-camera demo → slide 3 Key Concepts → slide 4 references card. If you use the original 25 s MP4 instead, follow it with your demo and then the references card. The 4 s references card is credits, not content; if your marker counts every second, trim the demo by 2–3 s.
 - Lay the voice-over on the MP4 using the timings in the guide.
 - Cut to camera at exactly 0:25.00. The last 0.2 s holds still on the paper-strip model, which gives you a clean cut point.
 - Fonts: Arial is used for maximum compatibility (Aptos is missing from older Office installs). To switch to Aptos, change `FONT` in `scene.py`.

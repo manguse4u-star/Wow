@@ -2,7 +2,7 @@
 
 **Style:** Harvard (*Cite Them Right*), one of the styles UCL Library supports. Entries are in alphabetical order by first author, with no numbering. Book and journal titles are in italics, article titles in single quotation marks, and DOIs are given as `https://doi.org/` links.
 
-**Where it appears:** at the **end** of the video, as a 4-second end card (`video/Spreading_Rates_References_EndCard.mp4`, also hidden slide 5 of the PPTX). Short in-text citations sit on slides 2–4.
+**Where it appears:** at the **end** of the video, as a 4-second end card (`video/Spreading_Rates_References_EndCard.mp4`). It is embedded as slide 4 of `Spreading_Rates_Presentation.pptx` and is also hidden slide 5 of `Spreading_Rates_Animated.pptx`. Short in-text citations appear in the animation and on the Key Concepts slide.
 
 ## Reference list
 
