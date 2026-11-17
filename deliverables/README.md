@@ -1,11 +1,11 @@
 # Spreading Rates — Part 1 animation package (GEOL0012)
 
-## ★ Main file for recording: `Spreading_Rates_Presentation.pptx`
+## Main file for recording: `Spreading_Rates_Presentation.pptx`
 | Slide | Content | Behaviour |
 |---|---|---|
 | 1 | Title · Edwin Wang · Student Number | Native fade-in animations; click to continue (you introduce yourself) |
 | 2 | **Embedded animation** `video/Spreading_Rates_Animation_Clip.mp4` (21 s; no title, starts straight at seafloor spreading, ends on the paper-strip model) | Plays automatically when the slide opens. In the edit, cut to your on-camera demo after it |
-| 3 | Key Concepts: three diagram cards + "Half-Spreading Rate = Distance ÷ Age" | Cards fade in automatically; for the recap after your demo |
+| 3 | Summary: figures (a)–(c) + "Half-spreading rate = distance from ridge ÷ age" | Figures fade in automatically; for the recap after your demo |
 | 4 | **Embedded references end card** `video/Spreading_Rates_References_EndCard.mp4` (4 s, Harvard) | Plays automatically |
 
 Both videos are embedded in the PPTX (H.264 MP4, plays in PowerPoint 2013+ and Microsoft 365), so no separate files are needed when presenting. The flow and voice-over timings are at the top of `Narration_and_Timing_Guide.md`. Rebuild: `cd build && node render.js ../deliverables --clip && python3 make_presentation.py`.
@@ -43,7 +43,6 @@ Both videos are embedded in the PPTX (H.264 MP4, plays in PowerPoint 2013+ and M
 1. Open `Spreading_Rates_Animated.pptx` and press F5 to check playback.
 2. Go to File → Export → Create a Video → **Full HD (1080p)** → **Use Recorded Timings and Narrations**. The slide timings are already stored in the file.
 3. If PowerPoint shows a slightly different total length, adjust Transitions → *After* on each slide (targets: 5.0 / 6.5 / 6.5 / 5.5 s).
-4. Before exporting, replace `[PLACEHOLDER]` on slide 1 with your student number. In the MP4, the number has to be overlaid in your video editor, or the clip re-rendered (see below).
 
 ### Rebuild everything (after editing `build/scene.py`)
 ```bash
@@ -52,10 +51,10 @@ python3 scene.py            # writes scene.json (and checks every animation ends
 python3 make_pptx.py        # -> deliverables/Spreading_Rates_Animated.pptx
 node render.js ../deliverables   # -> MP4, slide PNGs, SVGs, storyboard (needs playwright + ffmpeg)
 ```
-To put your student number in, edit the `"Student Number: [PLACEHOLDER]"` string in `scene.py` and rebuild.
+Text on any slide (e.g. the student number) lives in `scene.py`; edit it there and rebuild.
 
 ## Editing-suite tips
-- Final order (recording deck): slide 1 intro → slide 2 animation clip → your on-camera demo → slide 3 Key Concepts → slide 4 references card. If you use the original 25 s MP4 instead, follow it with your demo and then the references card. The 4 s references card is credits, not content; if your marker counts every second, trim the demo by 2–3 s.
+- Final order (recording deck): slide 1 intro → slide 2 animation clip → your on-camera demo → slide 3 Summary → slide 4 references card. If you use the original 25 s MP4 instead, follow it with your demo and then the references card. The 4 s references card is credits, not content; if your marker counts every second, trim the demo by 2–3 s.
 - Lay the voice-over on the MP4 using the timings in the guide.
 - Cut to camera at exactly 0:25.00. The last 0.2 s holds still on the paper-strip model, which gives you a clean cut point.
 - Fonts: Arial is used for maximum compatibility (Aptos is missing from older Office installs). To switch to Aptos, change `FONT` in `scene.py`.

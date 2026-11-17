@@ -142,9 +142,8 @@ def main():
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     slide.background.fill.solid()
     slide.background.fill.fore_color.rgb = RGBColor.from_string("071A33")
-    for d in [s for s in scene["slides"][0]["shapes"][:2]]:  # navy background + surface light
-        M.add_shape(slide.shapes, d)
-    M.add_shape(slide.shapes, text("Heading: Key Concepts", "Key Concepts", 120, 46, 1680, 90, 40, bold=True))
+    M.add_shape(slide.shapes, scene["slides"][0]["shapes"][0])  # navy background
+    M.add_shape(slide.shapes, text("Heading: Summary", "Summary", 60, 60, 1000, 80, 40, bold=True, align="l"))
     ap = os.path.join(DEL, "assets_png"); os.makedirs(ap, exist_ok=True)
     sp = os.path.join(DEL, "slides_png")
     imgs = [
@@ -152,36 +151,29 @@ def main():
         crop(os.path.join(sp, "slide3_final_state.png"), (240, 40, 1680, 1000), os.path.join(ap, "concept_half_vs_full_rate.png"), (1200, 800)),
         crop(os.path.join(sp, "slide4_magnetic_stripes_state.png"), (380, 190, 1540, 963), os.path.join(ap, "concept_magnetic_stripes.png"), (1200, 800)),
     ]
-    cards = [
-        ("Seafloor Spreading", "New crust forms at the ridge"),
-        ("Spreading Rates", "Full = 2 × Half (if symmetric)"),
-        ("Magnetic Stripes", "Mirror-image polarity record"),
-    ]
+    captions = ["(a) Seafloor spreading", "(b) Half vs full rate", "(c) Magnetic stripes"]
     items = []
-    for i, ((title, phrase), img) in enumerate(zip(cards, imgs)):
+    for i, (cap, img) in enumerate(zip(captions, imgs)):
         x, y, w = 60 + i * 610, 190, 580
         g = slide.shapes.add_group_shape()
-        M.add_shape(g.shapes, rect("Card", x, y, w, 520, r=18, fill=M_solid(C["pill"], 0.9),
-                                   ln={"color": "2E4A6B", "w": 2, "a": 1, "dash": None}))
-        pic = g.shapes.add_picture(img, M.E(x + 20), M.E(y + 20), M.E(w - 40), M.E((w - 40) * 2 / 3))
-        pic.name = "Diagram: " + title
-        M.add_shape(g.shapes, text("Card title", title, x + 20, y + 384, w - 40, 54, 26, bold=True))
-        M.add_shape(g.shapes, text("Card phrase", phrase, x + 20, y + 440, w - 40, 50, 20, color=C["cyan"]))
-        g.name = "Card: " + title
-        items.append((g.shape_id, fade_in(0.3 + 0.7 * i, 0.6)))
+        pic = g.shapes.add_picture(img, M.E(x), M.E(y), M.E(w), M.E(w * 2 / 3))
+        pic.name = "Figure " + cap
+        M.add_shape(g.shapes, rect("Figure border", x, y, w, w * 2 / 3,
+                                   ln={"color": "3A5575", "w": 2, "a": 1, "dash": None}))
+        M.add_shape(g.shapes, text("Caption", cap, x, y + w * 2 / 3 + 14, w, 48, 22, color="E6EDF4", align="l"))
+        g.name = "Figure " + cap
+        items.append((g.shape_id, fade_in(0.2 + 0.4 * i, 0.5)))
     g = slide.shapes.add_group_shape()
-    M.add_shape(g.shapes, rect("Relation bg", 360, 790, 1200, 110, r=55, fill=M_solid(C["pill"], 0.9),
-                               ln={"color": C["cyan"], "w": 2, "a": 0.9, "dash": None}))
-    M.add_shape(g.shapes, text("Relation", "Half-Spreading Rate = Distance ÷ Age", 360, 790, 1200, 110, 32, bold=True))
-    M.add_shape(g.shapes, text("Citation", "(Fowler, 2005; Vine and Matthews, 1963)", 360, 920, 1200, 44, 18, color="C9D6E3"))
+    M.add_shape(g.shapes, text("Relation", "Half-spreading rate = distance from ridge ÷ age", 60, 760, 1800, 80, 30, bold=True))
+    M.add_shape(g.shapes, text("Citation", "(Fowler, 2005; Vine and Matthews, 1963)", 60, 850, 1800, 44, 18, color="C9D6E3"))
     g.name = "Key relation"
-    items.append((g.shape_id, fade_in(2.5, 0.6)))
+    items.append((g.shape_id, fade_in(1.6, 0.5)))
     set_transition(slide, fade=True)
     put_timing(slide, M.Timing().build(items))
     slide.notes_slide.notes_text_frame.text = (
         "Recap after your demonstration (speak, don't read): seafloor spreading creates new crust at the ridge; "
         "half-rate is one side relative to the ridge, full-rate is plate separation; "
-        "mirror-image magnetic stripes plus their ages give the rate (distance divided by age). Cards fade in automatically.")
+        "mirror-image magnetic stripes plus their ages give the rate (distance divided by age). Figures fade in automatically.")
 
     # 4 -- references end card
     video_slide(prs, os.path.join(DEL, "video", "Spreading_Rates_References_EndCard.mp4"),

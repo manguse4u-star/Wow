@@ -195,8 +195,6 @@ def background():
     return [
         rect("Background", 0, 0, W, H,
              fill=grad([(0, C["bg_top"], 1), (1, C["bg_bot"], 1)], 90)),
-        ellipse("Surface light", CX, -120, 1100, 420,
-                fill=grad([(0, "4FB3D9", 0.10), (1, "4FB3D9", 0.0)], 90), soft=160),
     ]
 
 
@@ -252,28 +250,24 @@ def slide1():
                 fill=grad([(0, C["magma_hot"], 0.85), (0.35, C["magma"], 0.55), (1, C["magma"], 0.0)], 90))
     sec = [S.asthenosphere(), melt] + S.plate("L", "Left plate") + S.plate("R", "Right plate")
     shapes.append(group("Cross-section", sec, fx=[fade_in(0.0, 0.9)]))
-    # ridge highlight (soft glow that pulses on then settles)
-    shapes.append(ellipse("Ridge highlight", CX, 604, 150, 46,
-                          fill=solid(C["cyan"], 0.55), soft=40,
-                          fx=[fade_in(1.2, 0.5), fade_out(2.4, 0.8)]))
     shapes.append(poly("Ridge axis marker", [(CX, 540), (CX, 596)], closed=False,
                        ln=line(C["cyan"], 4, 1.0), fx=[fade_in(1.2, 0.5)]))
     # plate-motion arrows: appear at ridge flanks and glide outward
     yl = S.sf(150) - 34
     shapes.append(poly("Arrow left", arrow_pts(CX - 110, yl, CX - 290, yl, 16, 44, 40),
-                       fill=solid(C["cyan"]), glow={"color": C["cyan"], "r": 10, "a": 0.45},
+                       fill=solid(C["cyan"]),
                        fx=[fade_in(1.8, 0.5), move(1.8, 1.6, -150, 0, 0.3, 0.5)]))
     shapes.append(poly("Arrow right", arrow_pts(CX + 110, yl, CX + 290, yl, 16, 44, 40),
-                       fill=solid(C["cyan"]), glow={"color": C["cyan"], "r": 10, "a": 0.45},
+                       fill=solid(C["cyan"]),
                        fx=[fade_in(1.8, 0.5), move(1.8, 1.6, 150, 0, 0.3, 0.5)]))
     # titles
-    shapes.append(text("Title", "Spreading Rates", 260, 92, 1400, 120, 66, bold=True,
+    shapes.append(text("Title", "Spreading Rates", 120, 96, 1400, 120, 66, bold=True, align="l",
                        fx=[fade_in(0.5, 0.7)]))
-    shapes.append(text("Subtitle", "How Fast Is the Ocean Floor Moving?", 260, 226, 1400, 70, 32,
+    shapes.append(text("Subtitle", "How Fast Is the Ocean Floor Moving?", 120, 222, 1400, 70, 32, align="l",
                        color="BFE9F2", fx=[fade_in(0.9, 0.7)]))
-    shapes.append(text("Presenter name", "Edwin Wang", 560, 330, 800, 50, 24, bold=True,
+    shapes.append(text("Presenter name", "Edwin Wang", 120, 330, 800, 50, 24, bold=True, align="l",
                        fx=[fade_in(2.4, 0.6)]))
-    shapes.append(text("Student number", "Student Number: [PLACEHOLDER]", 460, 378, 1000, 48, 22,
+    shapes.append(text("Student number", "Student Number: 25092450", 120, 386, 1000, 48, 22, align="l",
                        color=C["muted"], fx=[fade_in(2.6, 0.6)]))
     return dict(name="Opening", adv=5.0, transition=0.0, shapes=shapes,
                 notes="Narration (0:00-0:05): \"Hi, I'm Edwin. Today, I'll explain seafloor spreading rates.\"")
@@ -325,11 +319,9 @@ def slide2():
     # the two plates (move apart; ridge axis stays put)
     yl = S.sf(150) - 34  # same place the slide-1 arrows finished, so the cross-fade is seamless
     L = S.plate("L", "Left plate") + [
-        poly("Left plate arrow", arrow_pts(CX - 260, yl, CX - 440, yl, 16, 44, 40), fill=solid(C["cyan"]),
-             glow={"color": C["cyan"], "r": 10, "a": 0.45})]
+        poly("Left plate arrow", arrow_pts(CX - 260, yl, CX - 440, yl, 16, 44, 40), fill=solid(C["cyan"]))]
     R = S.plate("R", "Right plate") + [
-        poly("Right plate arrow", arrow_pts(CX + 260, yl, CX + 440, yl, 16, 44, 40), fill=solid(C["cyan"]),
-             glow={"color": C["cyan"], "r": 10, "a": 0.45})]
+        poly("Right plate arrow", arrow_pts(CX + 260, yl, CX + 440, yl, 16, 44, 40), fill=solid(C["cyan"]))]
     shapes.append(group("Left plate", L, fx=[move(T0, TD, -G)]))
     shapes.append(group("Right plate", R, fx=[move(T0, TD, G)]))
     # ridge axis + labels
@@ -374,10 +366,10 @@ def slide3():
     ya = 600
     xl, xr = 400, 1520
     shapes.append(poly("Half-rate arrow left", arrow_pts(CX - 8, ya, xl, ya, 18, 50, 46),
-                       fill=solid(C["cyan"]), glow={"color": C["cyan"], "r": 10, "a": 0.5},
+                       fill=solid(C["cyan"]),
                        fx=[wipe_in(0.5, 0.9, "left")]))
     shapes.append(poly("Half-rate arrow right", arrow_pts(CX + 8, ya, xr, ya, 18, 50, 46),
-                       fill=solid(C["cyan"]), glow={"color": C["cyan"], "r": 10, "a": 0.5},
+                       fill=solid(C["cyan"]),
                        fx=[wipe_in(1.5, 0.9, "right")]))
     for side, cx in (("left", (CX + xl) / 2), ("right", (CX + xr) / 2)):
         shapes.append(text(f"Label: Half-Spreading Rate ({side})", "Half-Spreading Rate", cx - 260, 396, 520, 50, 26,
@@ -387,7 +379,7 @@ def slide3():
         shapes.append(text(f"Caption: relative to ridge ({side})", "relative to ridge", cx - 200, 514, 400, 40, 20,
                            color=C["muted"], fx=[fade_in(2.5, 0.5)]))
     shapes.append(poly("Full-rate arrow", double_arrow_pts(xl, xr, 268, 18, 54, 48),
-                       fill=solid("FFFFFF"), glow={"color": C["cyan"], "r": 12, "a": 0.55},
+                       fill=solid("FFFFFF"),
                        fx=[split_out(3.4, 1.0)]))
     shapes.append(text("Label: Full-Spreading Rate", "Full-Spreading Rate", 560, 74, 800, 60, 32, bold=True,
                        fx=[fade_in(4.0, 0.5)]))
@@ -395,11 +387,9 @@ def slide3():
                        color="FFFFFF", fx=[fade_in(4.0, 0.5)]))
     shapes.append(text("Caption: plate separation", "relative plate separation", 560, 298, 800, 44, 20,
                        color=C["muted"], fx=[fade_in(4.0, 0.5)]))
-    shapes.append(rect("Equation bg", 650, 880, 620, 100, r=50, fill=solid(C["pill"], 0.88),
-                       ln=line(C["cyan"], 2, 0.8), fx=[fade_in(5.0, 0.5)]))
     shapes.append(text("Equation: 2 + 2 = 4 cm/yr", "2 + 2 = 4 cm/yr", 650, 880, 620, 100, 40, bold=True,
                        fx=[fade_in(5.0, 0.5)]))
-    shapes.append(text("Caption: illustrative values", "Illustrative values (symmetric spreading)",
+    shapes.append(text("Caption: illustrative values", "Example values, symmetric ridge",
                        1000, 1004, 880, 48, 20, color="C9D6E3", align="r", fx=[fade_in(5.0, 0.5)]))
     shapes.append(text("Citation", "(Fowler, 2005; Müller et al., 2008)",
                        40, 1006, 700, 44, 18, color="C9D6E3", align="l", fx=[fade_in(5.0, 0.5)]))
@@ -448,7 +438,7 @@ def slide4():
     shapes.append(poly("Ridge axis", [(CX, y0 - 24), (CX, y0 + h + 24)], closed=False,
                        ln=line(C["magma"], 6), glow=None, fx=[fade_out(4.4, 0.8)]))
     shapes.append(ellipse("Ridge axis glow", CX, y0 + h / 2, 22, h / 2 + 20,
-                          fill=solid(C["magma"], 0.45), soft=18, fx=[fade_out(4.4, 0.8)]))
+                          fill=solid(C["magma"], 0.3), soft=18, fx=[fade_out(4.4, 0.8)]))
     shapes.append(text("Label: Mid-Ocean Ridge", "Mid-Ocean Ridge", 660, 212, 600, 56, 28, bold=True,
                        fx=[fade_in(0.1, 0.5), fade_out(4.4, 0.6)]))
     # matching-pattern highlight: the same wide reversed band on both flanks
@@ -456,7 +446,7 @@ def slide4():
     for side in ("L", "R"):
         x = CX - off - widths[1] if side == "L" else CX + off
         shapes.append(rect(f"Match outline ({'left' if side == 'L' else 'right'})", x - 4, y0 - 12, widths[1] + 8, h + 24,
-                           ln=line(C["cyan"], 5), r=6, glow={"color": C["cyan"], "r": 10, "a": 0.6},
+                           ln=line(C["cyan"], 5), r=6,
                            fx=[fade_in(3.5, 0.4), fade_out(4.4, 0.6)]))
     # legend
     lx, ly = 500, 776

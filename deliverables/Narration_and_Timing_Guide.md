@@ -1,13 +1,13 @@
 # Spreading Rates — Narration & Timing Guide
 
-## ★ Recording flow (use `Spreading_Rates_Presentation.pptx`)
+## Recording flow (use `Spreading_Rates_Presentation.pptx`)
 
 | # | What | Source | Length | You say |
 |---|---|---|---|---|
 | 1 | Title, name, student number (fade in) | PPTX slide 1 | ~5 s (click when ready) | "Hi, I'm Edwin. Today, I'll explain seafloor spreading rates." |
 | 2 | Animation clip, auto-plays, no title | PPTX slide 2 = `video/Spreading_Rates_Animation_Clip.mp4` | 21.0 s (20 s + 1 s still hold on the final frame) | Voice-over, timed in the table below |
 | 3 | **CUT TO CAMERA**: paper-strip demonstration | your footage | ~25 s | "This cardboard is the ridge, and these strips are the seafloor on each side." Then: pull the strips, point out the matching stripes, work through 100 km ÷ 5 Myr = 2 cm/yr |
-| 4 | Key Concepts recap (cards fade in) | PPTX slide 3 | ~8 s | e.g. "So: new crust forms at the ridge, each side moves at the half-rate, and the stripes plus their ages give us the rate." |
+| 4 | Summary slide (figures fade in) | PPTX slide 3 | ~8 s | e.g. "So: new crust forms at the ridge, each side moves at the half-rate, and the stripes plus their ages give us the rate." |
 | 5 | References end card, auto-plays | PPTX slide 4 = `video/Spreading_Rates_References_EndCard.mp4` | 4 s | (silent) |
 
 Suggested budget: 5 + 20 + 25 + 8 ≈ 58 s of content, plus the 4 s references card. You are on camera for at least 20 s in step 3. If you also appear on camera during step 1 or step 4, that time counts as well.
@@ -53,7 +53,7 @@ Target speaking pace: ~2.7 words/s (relaxed, clear). Record the voice-over to th
 | 1.2–1.7 | Ridge crest highlighted (cyan glow + axis marker); glow settles 2.4–3.2 |
 | 1.8–3.4 | Two cyan arrows appear at the ridge flanks and glide outward (smooth start/end) |
 | 2.4–3.0 | **Edwin Wang** fades in |
-| 2.6–3.2 | **Student Number: [PLACEHOLDER]** fades in |
+| 2.6–3.2 | **Student Number: 25092450** fades in |
 | 3.2–5.0 | Hold |
 
 **Narration**
@@ -98,7 +98,7 @@ Target speaking pace: ~2.7 words/s (relaxed, clear). Record the voice-over to th
 | 15.0–15.5 | **Half-Spreading Rate / 2 cm/yr / relative to ridge** on both sides |
 | 15.9–16.9 | Large double-headed arrow opens out from the centre (plate-to-plate separation) |
 | 16.5–17.0 | **Full-Spreading Rate / 4 cm/yr / relative plate separation** |
-| 17.5–18.0 | **2 + 2 = 4 cm/yr** + caption *Illustrative values (symmetric spreading)* |
+| 17.5–18.0 | **2 + 2 = 4 cm/yr** + caption *Example values, symmetric ridge* |
 | 18.0–19.0 | Hold |
 
 **Narration**
@@ -151,7 +151,7 @@ Suggested Part 2 beats (about 35 s; speak them, don't read them):
 `video/Spreading_Rates_References_EndCard.mp4`, 4 s, no narration: the heading and Harvard reference list fade in over a still background. Cut to it straight after your on-camera conclusion.
 
 ## On-screen text check (all permitted types)
-Title, subtitle, name, student number, and short diagram labels only: Mid-Ocean Ridge · Magma · New Oceanic Crust · Half-Spreading Rate · Full-Spreading Rate · 2 cm/yr · 4 cm/yr · relative to ridge · relative plate separation · 2 + 2 = 4 cm/yr · Illustrative values (symmetric spreading) · Magnetic Stripes · Normal Polarity · Reversed Polarity. Short Harvard in-text citations also appear on slides 2–4. No sentences or paragraphs.
+Title, subtitle, name, student number, and short diagram labels only: Mid-Ocean Ridge · Magma · New Oceanic Crust · Half-Spreading Rate · Full-Spreading Rate · 2 cm/yr · 4 cm/yr · relative to ridge · relative plate separation · 2 + 2 = 4 cm/yr · Example values, symmetric ridge · Magnetic Stripes · Normal Polarity · Reversed Polarity. Short Harvard in-text citations also appear on slides 2–4. No sentences or paragraphs.
 
 ## Scientific notes (why the diagrams are drawn this way)
 - **Seafloor depth and lithosphere thickness increase with distance from the ridge** along a square-root curve, matching the observed depth ∝ √age cooling relationship (Parsons & Sclater, 1977). This is why the ridge stands high.
