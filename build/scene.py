@@ -218,7 +218,7 @@ def slide1():
                        color="BFE9F2", fx=[fade_in(0.9, 0.7)]))
     shapes.append(text("Presenter name", "Edwin Wang", 560, 330, 800, 50, 24, bold=True,
                        fx=[fade_in(2.4, 0.6)]))
-    shapes.append(text("Student number", "Student Number: [PLACEHOLDER]", 460, 380, 1000, 44, 18,
+    shapes.append(text("Student number", "Student Number: [PLACEHOLDER]", 460, 378, 1000, 48, 22,
                        color=C["muted"], fx=[fade_in(2.6, 0.6)]))
     return dict(name="Opening", adv=5.0, transition=0.0, shapes=shapes,
                 notes="Narration (0:00-0:05): \"Hi, I'm Edwin. Today, I'll explain seafloor spreading rates.\"")
@@ -327,7 +327,7 @@ def slide3():
                            bold=True, fx=[fade_in(2.5, 0.5)]))
         shapes.append(text(f"Label: 2 cm/yr ({side})", "2 cm/yr", cx - 200, 440, 400, 70, 40, bold=True,
                            color=C["cyan"], fx=[fade_in(2.5, 0.5)]))
-        shapes.append(text(f"Caption: relative to ridge ({side})", "relative to ridge", cx - 200, 516, 400, 36, 16,
+        shapes.append(text(f"Caption: relative to ridge ({side})", "relative to ridge", cx - 200, 514, 400, 40, 20,
                            color=C["muted"], fx=[fade_in(2.5, 0.5)]))
     shapes.append(poly("Full-rate arrow", double_arrow_pts(xl, xr, 268, 18, 54, 48),
                        fill=solid("FFFFFF"), glow={"color": C["cyan"], "r": 12, "a": 0.55},
@@ -336,14 +336,14 @@ def slide3():
                        fx=[fade_in(4.0, 0.5)]))
     shapes.append(text("Label: 4 cm/yr", "4 cm/yr", 660, 134, 600, 84, 48, bold=True,
                        color="FFFFFF", fx=[fade_in(4.0, 0.5)]))
-    shapes.append(text("Caption: plate separation", "relative plate separation", 560, 300, 800, 40, 16,
+    shapes.append(text("Caption: plate separation", "relative plate separation", 560, 298, 800, 44, 20,
                        color=C["muted"], fx=[fade_in(4.0, 0.5)]))
     shapes.append(rect("Equation bg", 650, 880, 620, 100, r=50, fill=solid(C["pill"], 0.88),
                        ln=line(C["cyan"], 2, 0.8), fx=[fade_in(5.0, 0.5)]))
     shapes.append(text("Equation: 2 + 2 = 4 cm/yr", "2 + 2 = 4 cm/yr", 650, 880, 620, 100, 40, bold=True,
                        fx=[fade_in(5.0, 0.5)]))
     shapes.append(text("Caption: illustrative values", "Illustrative values (symmetric spreading)",
-                       1180, 1010, 700, 40, 16, color="C9D6E3", align="r", fx=[fade_in(5.0, 0.5)]))
+                       1000, 1004, 880, 48, 20, color="C9D6E3", align="r", fx=[fade_in(5.0, 0.5)]))
     return dict(name="Half vs full spreading rate", adv=6.5, transition=0.5, shapes=shapes,
                 notes="Narration (0:12-0:19): \"Each side's motion is a half-spreading rate. Together, they give the full separation rate.\"")
 

@@ -9,6 +9,7 @@
 | C. Storyboard frames, one per second (1080p) | `storyboard/` |
 | D. Narration script and exact timing | `Narration_and_Timing_Guide.md` (narration lines are also in each slide's Speaker Notes) |
 | E. References | `References.md` |
+| Final QC against brief §9 | `QC_Checklist.md` |
 
 ## What is in the PPTX
 - Every graphic is a native, editable PowerPoint shape: freeform cross-sections, arrows, rectangles, ovals, and text boxes (Arial). The plates are grouped ("Left plate", "Right plate"), and every shape is named in the Selection Pane.

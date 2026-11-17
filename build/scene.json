@@ -4222,10 +4222,10 @@
      "name": "Student number",
      "text": "Student Number: [PLACEHOLDER]",
      "x": 460,
-     "y": 380,
+     "y": 378,
      "w": 1000,
-     "h": 44,
-     "size": 18,
+     "h": 48,
+     "size": 22,
      "color": "9FB3C8",
      "bold": false,
      "align": "ctr",
@@ -4239,9 +4239,9 @@
      ],
      "bbox": [
       460,
-      380,
+      378,
       1000,
-      44
+      48
      ]
     }
    ],
@@ -14338,10 +14338,10 @@
      "name": "Caption: relative to ridge (left)",
      "text": "relative to ridge",
      "x": 480.0,
-     "y": 516,
+     "y": 514,
      "w": 400,
-     "h": 36,
-     "size": 16,
+     "h": 40,
+     "size": 20,
      "color": "9FB3C8",
      "bold": false,
      "align": "ctr",
@@ -14355,9 +14355,9 @@
      ],
      "bbox": [
       480.0,
-      516,
+      514,
       400,
-      36
+      40
      ]
     },
     {
@@ -14419,10 +14419,10 @@
      "name": "Caption: relative to ridge (right)",
      "text": "relative to ridge",
      "x": 1040.0,
-     "y": 516,
+     "y": 514,
      "w": 400,
-     "h": 36,
-     "size": 16,
+     "h": 40,
+     "size": 20,
      "color": "9FB3C8",
      "bold": false,
      "align": "ctr",
@@ -14436,9 +14436,9 @@
      ],
      "bbox": [
       1040.0,
-      516,
+      514,
       400,
-      36
+      40
      ]
     },
     {
@@ -14572,10 +14572,10 @@
      "name": "Caption: plate separation",
      "text": "relative plate separation",
      "x": 560,
-     "y": 300,
+     "y": 298,
      "w": 800,
-     "h": 40,
-     "size": 16,
+     "h": 44,
+     "size": 20,
      "color": "9FB3C8",
      "bold": false,
      "align": "ctr",
@@ -14589,9 +14589,9 @@
      ],
      "bbox": [
       560,
-      300,
+      298,
       800,
-      40
+      44
      ]
     },
     {
@@ -14660,11 +14660,11 @@
      "kind": "text",
      "name": "Caption: illustrative values",
      "text": "Illustrative values (symmetric spreading)",
-     "x": 1180,
-     "y": 1010,
-     "w": 700,
-     "h": 40,
-     "size": 16,
+     "x": 1000,
+     "y": 1004,
+     "w": 880,
+     "h": 48,
+     "size": 20,
      "color": "C9D6E3",
      "bold": false,
      "align": "r",
@@ -14677,10 +14677,10 @@
       }
      ],
      "bbox": [
-      1180,
-      1010,
-      700,
-      40
+      1000,
+      1004,
+      880,
+      48
      ]
     }
    ],
