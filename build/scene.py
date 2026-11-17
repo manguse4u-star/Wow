@@ -490,6 +490,8 @@ def slide4():
 # ================================================================ END CARD (references)
 ACCESSED = "17 November 2026"
 REFERENCES = [  # Harvard (Cite Them Right), as recommended by UCL Library; alphabetical
+    [("DeMets, C., Gordon, R.G. and Argus, D.F. (2010) \u2018Geologically current plate motions\u2019, ", 0),
+     ("Geophysical Journal International", 1), (", 181(1), pp. 1\u201380. Available at: https://doi.org/10.1111/j.1365-246X.2009.04491.x.", 0)],
     [("Fowler, C.M.R. (2005) ", 0), ("The solid Earth: an introduction to global geophysics", 1),
      (". 2nd edn. Cambridge: Cambridge University Press.", 0)],
     [("Kious, W.J. and Tilling, R.I. (1996) ", 0), ("This dynamic Earth: the story of plate tectonics", 1),
@@ -498,6 +500,8 @@ REFERENCES = [  # Harvard (Cite Them Right), as recommended by UCL Library; alph
      ("Geochemistry, Geophysics, Geosystems", 1), (", 9(4), Q04006. Available at: https://doi.org/10.1029/2007GC001743.", 0)],
     [("NOAA Ocean Exploration (no date) ", 0), ("What is a mid-ocean ridge?", 1),
      (" Available at: https://oceanexplorer.noaa.gov/facts/mid-ocean-ridge.html (Accessed: %s)." % ACCESSED, 0)],
+    [("Ogg, J.G. (2012) \u2018Geomagnetic polarity time scale\u2019, in Gradstein, F.M. et al. (eds) ", 0),
+     ("The geologic time scale 2012", 1), (". Amsterdam: Elsevier, pp. 85\u2013113.", 0)],
     [("Parsons, B. and Sclater, J.G. (1977) \u2018An analysis of the variation of ocean floor bathymetry and heat flow with age\u2019, ", 0),
      ("Journal of Geophysical Research", 1), (", 82(5), pp. 803\u2013827. Available at: https://doi.org/10.1029/JB082i005p00803.", 0)],
     [("Vine, F.J. and Matthews, D.H. (1963) \u2018Magnetic anomalies over oceanic ridges\u2019, ", 0), ("Nature", 1),
@@ -509,11 +513,11 @@ def endcard():
     shapes = background()
     shapes.append(text("Heading: References", "References", 120, 60, 1680, 90, 40, bold=True, align="l",
                        fx=[fade_in(0.0, 0.5)]))
-    shapes.append(rich("Reference list", REFERENCES, 120, 175, 1680, 19, color="E6EDF4",
+    shapes.append(rich("Reference list", REFERENCES, 120, 165, 1680, 16, color="E6EDF4",
                        fx=[fade_in(0.2, 0.6)]))
     shapes.append(text("Footer: style", "Referencing style: Harvard (Cite Them Right)",
                        120, 1000, 1680, 40, 16, color=C["muted"], align="l", fx=[fade_in(0.2, 0.6)]))
-    return dict(name="References (end card)", adv=4.0, transition=0.0, shapes=shapes, hidden=True,
+    return dict(name="References (end card)", adv=4.5, transition=0.0, shapes=shapes, hidden=True,
                 notes="End card: place after the on-camera demonstration (after 1:00 of content). "
                       "This slide is HIDDEN so the 25-second Part 1 export is unaffected; "
                       "a ready-made clip is supplied as Spreading_Rates_References_EndCard.mp4.")

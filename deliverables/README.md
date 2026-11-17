@@ -1,60 +1,35 @@
-# Spreading Rates — Part 1 animation package (GEOL0012)
+# Spreading Rates (GEOL0012 video blog)
 
-## Main file for recording: `Spreading_Rates_Presentation.pptx`
-| Slide | Content | Behaviour |
-|---|---|---|
-| 1 | Title · Edwin Wang · Student Number | Native fade-in animations; click to continue (you introduce yourself) |
-| 2 | **Embedded animation** `video/Spreading_Rates_Animation_Clip.mp4` (21 s; no title, starts straight at seafloor spreading, ends on the paper-strip model) | Plays automatically when the slide opens. In the edit, cut to your on-camera demo after it |
-| 3 | Summary: figures (a)–(c) + "Half-spreading rate = distance from ridge ÷ age" | Figures fade in automatically; for the recap after your demo |
-| 4 | **Embedded references end card** `video/Spreading_Rates_References_EndCard.mp4` (4 s, Harvard) | Plays automatically |
+Edwin Wang, student number 25092450
 
-Both videos are embedded in the PPTX (H.264 MP4, plays in PowerPoint 2013+ and Microsoft 365), so no separate files are needed when presenting. The flow and voice-over timings are at the top of `Narration_and_Timing_Guide.md`. Rebuild: `cd build && node render.js ../deliverables --clip && python3 make_presentation.py`.
-
-## Other files
-
-| Deliverable | File |
+## Files
+| File | What it is |
 |---|---|
-| A. Fully editable, natively animated PowerPoint (source version: every diagram is shapes) (16:9, 4 slides, auto-timed, 25.0 s) | `Spreading_Rates_Animated.pptx` |
-| B. Animation video (1920×1080, 30 fps, 750 frames, 25.000 s, H.264, silent) | `Spreading_Rates_PPT_25sec.mp4` |
-| C. Slide PNGs (3840×2160, final state of each slide) | `slides_png/` |
-| C. Vector diagrams (SVG, final state of each slide, editable in Illustrator/Inkscape) | `assets_svg/` |
-| C. Storyboard frames, one per second (1080p) | `storyboard/` |
-| D. Narration script and exact timing | `Narration_and_Timing_Guide.md` (narration lines are also in each slide's Speaker Notes) |
-| E. References (Harvard, Cite Them Right) | `References.md` |
-| References end card, 4 s (place at the very end of the video, after Part 2) | `video/Spreading_Rates_References_EndCard.mp4` · `slides_png/slide5_references_end_card.png` · hidden slide 5 in the PPTX |
-| Final QC against brief §9 | `QC_Checklist.md` |
+| `Spreading_Rates_Presentation.pptx` | **The deck to record from** (4 slides, see below) |
+| `video/Spreading_Rates_Animation_with_References.mp4` | Closing animation with the references card (17.8 s, 1080p30, silent). Also embedded as slide 4 |
+| `Narration_and_Timing_Guide.md` | Recording plan, what to say, and voice-over cues |
+| `References.md` | Harvard reference list, where each source is cited, and image sources |
+| `assets_png/` | Figures used on the slides, including the simulated magnetic anomaly profile (PNG + SVG) |
+| `Spreading_Rates_Animated.pptx`, `Spreading_Rates_PPT_25sec.mp4` | Earlier full version. Every diagram is an editable PowerPoint shape with native animation. Kept as a source/backup |
 
-## What is in the PPTX
-- Every graphic is a native, editable PowerPoint shape: freeform cross-sections, arrows, rectangles, ovals, and text boxes (Arial). The plates are grouped ("Left plate", "Right plate"), and every shape is named in the Selection Pane.
-- Real PowerPoint animations, all auto-run ("With Previous" + delay): Fade, Wipe (From Bottom/Left/Right), Split (Vertical Out), custom Motion Paths (linear, or with smooth start/end), and Fade exits.
-- Slide 5 holds the References end card. It is **hidden**, so playing the deck or exporting it as video still gives exactly the 25 s Part 1. In-text citations sit on slides 2–4.
-- Slide timing: slide 1 advances after 5.0 s. Slides 2–4 use a 0.5 s **Fade** transition, then advance after 6.5 s, 6.5 s and 5.5 s. Total = 25.0 s.
-- **Edit view looks busier than playback.** Shapes sit at their *pre-animation* positions. On slide 4, for example, all stripe bands are stacked at the ridge because they move outward during the show. Use Slide Show or the Animation Pane to see the real result.
+## Deck layout
+1. **Introduction:** title, name, student number.
+2. **What is a spreading rate?** Diagram plus short definitions of half- and full-spreading rate.
+3. **Measuring it from magnetic stripes:** simulated anomaly profile with a caption and the typical range of rates.
+4. **Closing animation and references:** plays automatically. Put this slide after your on-camera demonstration.
 
-## How the MP4 was made, and limitations
-- This environment has **no Microsoft PowerPoint**, so the MP4 was **not** exported by PowerPoint. Both files are generated from one timeline (`build/scene.py`):
-  - `build/make_pptx.py` writes the shapes and native animation XML into the PPTX.
-  - `build/render.js` plays the same shapes and effects frame by frame in headless Chromium and encodes them with ffmpeg.
-  
-  The video therefore matches the deck's choreography, but small visual details may differ from PowerPoint's own playback: wipe-edge softness, glow and soft-edge look, and font rasterisation.
-- The PPTX passes OOXML schema validation and opens correctly in LibreOffice. Its animation playback has **not** been tested in Microsoft PowerPoint here.
+Slides 1–3 build with short fades and advance on click. The video on slide 4 starts by itself.
 
-### To re-export the video from PowerPoint yourself (optional)
-1. Open `Spreading_Rates_Animated.pptx` and press F5 to check playback.
-2. Go to File → Export → Create a Video → **Full HD (1080p)** → **Use Recorded Timings and Narrations**. The slide timings are already stored in the file.
-3. If PowerPoint shows a slightly different total length, adjust Transitions → *After* on each slide (targets: 5.0 / 6.5 / 6.5 / 5.5 s).
+## Notes
+- **PowerPoint check:** the deck has not been played in Microsoft PowerPoint, because the build environment has none. Press F5 once to confirm that slide 4's video plays.
+- **Images:** all images are own work, either schematic diagrams or a simulation. Swap in real figures if you prefer, and add their sources to the reference list.
+- **On-screen text vs the brief:** the coursework brief discourages explanatory sentences on screen. Slides 2–3 include short captions because you asked for them. Remove them if your marker is strict about this.
 
-### Rebuild everything (after editing `build/scene.py`)
+## Rebuild after edits
 ```bash
 cd build
-python3 scene.py            # writes scene.json (and checks every animation ends before its slide advances)
-python3 make_pptx.py        # -> deliverables/Spreading_Rates_Animated.pptx
-node render.js ../deliverables   # -> MP4, slide PNGs, SVGs, storyboard (needs playwright + ffmpeg)
+python3 scene.py && python3 make_pptx.py
+node render.js ../deliverables          # stills, references card, closing animation, 25 s version
+python3 make_figures.py && node svg2png.js ../deliverables/assets_png/simulated_magnetic_anomaly_profile.svg ../deliverables/assets_png/simulated_magnetic_anomaly_profile.png 2
+python3 make_presentation.py
 ```
-Text on any slide (e.g. the student number) lives in `scene.py`; edit it there and rebuild.
-
-## Editing-suite tips
-- Final order (recording deck): slide 1 intro → slide 2 animation clip → your on-camera demo → slide 3 Summary → slide 4 references card. If you use the original 25 s MP4 instead, follow it with your demo and then the references card. The 4 s references card is credits, not content; if your marker counts every second, trim the demo by 2–3 s.
-- Lay the voice-over on the MP4 using the timings in the guide.
-- Cut to camera at exactly 0:25.00. The last 0.2 s holds still on the paper-strip model, which gives you a clean cut point.
-- Fonts: Arial is used for maximum compatibility (Aptos is missing from older Office installs). To switch to Aptos, change `FONT` in `scene.py`.

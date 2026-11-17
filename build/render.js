@@ -136,7 +136,7 @@ function pageCode() {
 
   // T = global time (s).  Returns the SVG for that instant.
   window.svgAt = function (T, onlySlide, localT) {
-    uid = 0;
+    // ids keep increasing so two frames can be composited without clashes
     const defs = [];
     let body = '';
     const S = window.SCENE.slides;
@@ -236,22 +236,36 @@ async function main() {
     console.log('wrote', mp4);
   }
 
-  // Demonstration clip for embedding in the presentation: no title/name, starts at the
-  // seafloor-spreading slide (0.5 s still lead-in), runs to the paper-strip model,
-  // then holds the last frame for 1 s (cutting room for the edit).
+  // Closing animation for the presentation (played AFTER the on-camera demo):
+  // seafloor spreading -> magnetic stripes -> paper-strip model -> references.
+  // The half/full-rate segment is left out because the PPT slides define those terms.
   if (MODE === 'all' || MODE === '--clip') {
     const page = await mk(1);
-    const LEAD = 0.5, BODY = scene.total - S[1].t0 - S[1].transition, TAIL = 1.0;
-    scene.clip = { lead: LEAD, body: BODY, tail: TAIL, total: LEAD + BODY + TAIL };
-    const n = Math.round(scene.clip.total * scene.fps);
+    const LEAD = 0.3, XF = 0.5;
+    const A = S[1], B = S[3], E = scene.endcard;
+    const segs = { lead: LEAD, a: A.adv, xf1: XF, b: B.adv, xf2: XF, e: E.adv };
+    const total = LEAD + A.adv + XF + B.adv + XF + E.adv;
+    scene.clip = { ...segs, total };
+    const n = Math.round(total * scene.fps);
     fs.mkdirSync(path.join(OUT, 'video'), { recursive: true });
     const clipFn = new Function('c', `
-      const S = window.SCENE.slides, L = ${LEAD}, B = ${BODY};
-      if (c < L) return window.svgAt(0, 1, 0);
-      if (c >= L + B - 1e-6) return window.svgAt(0, S.length - 1, S[S.length - 1].adv);
-      return window.svgAt(S[1].t0 + S[1].transition + (c - L));`);
-    await encode(page, n, clipFn, path.join(OUT, 'video', 'Spreading_Rates_Animation_Clip.mp4'));
-    // poster frame = first frame
+      const S = window.SCENE.slides, E = window.SCENE.endcard, A = S[1], B = S[3];
+      const L = ${LEAD}, X = ${XF};
+      const mix = (svgA, svgB, p) => svgA.replace('</svg>', '') .concat('<g opacity="' + p.toFixed(4) + '">' +
+        svgB.replace(/^<svg[^>]*>/, '').replace('</svg>', '') + '</g></svg>');
+      let t = c;
+      if (t < L) return window.svgAt(0, 1, 0);
+      t -= L;
+      if (t < A.adv) return window.svgAt(0, 1, t);
+      t -= A.adv;
+      if (t < X) return mix(window.svgAt(0, 1, A.adv), window.svgAt(0, 3, 0), t / X);
+      t -= X;
+      if (t < B.adv) return window.svgAt(0, 3, t);
+      t -= B.adv;
+      if (t < X) return mix(window.svgAt(0, 3, B.adv), window.svgAt(0, 'E', 0), t / X);
+      t -= X;
+      return window.svgAt(0, 'E', Math.min(t, E.adv));`);
+    await encode(page, n, clipFn, path.join(OUT, 'video', 'Spreading_Rates_Animation_with_References.mp4'));
     const page2 = await mk(1);
     const svg0 = await page2.evaluate(() => window.svgAt(0, 1, 0));
     await page2.evaluate((s) => window.show(s), svg0);

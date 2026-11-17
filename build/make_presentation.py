@@ -15,7 +15,7 @@ from pptx.dml.color import RGBColor
 from pptx.util import Emu
 
 import make_pptx as M
-from scene import C, build, rect, text, fade_in
+from scene import C, build, rect, text, rich, fade_in
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DEL = os.path.join(HERE, "..", "deliverables")
@@ -132,53 +132,72 @@ def main():
         "YOU (voice or on camera): \"Hi, I'm Edwin. Today, I'll explain seafloor spreading rates.\" "
         "Click to go to the animation.")
 
-    # 2 -- animation clip
-    video_slide(prs, os.path.join(DEL, "video", "Spreading_Rates_Animation_Clip.mp4"),
-                os.path.join(DEL, "video", "clip_poster.png"), clip["total"],
-                "Auto-plays (%.1f s, silent). Voice-over lines and timings: see Narration_and_Timing_Guide.md. "
-                "Ends on the paper-strip model - CUT to your on-camera demonstration here." % clip["total"])
+    def plain_slide():
+        sl = prs.slides.add_slide(prs.slide_layouts[6])
+        sl.background.fill.solid()
+        sl.background.fill.fore_color.rgb = RGBColor.from_string("071A33")
+        M.add_shape(sl.shapes, scene["slides"][0]["shapes"][0])  # navy background
+        return sl
 
-    # 3 -- key concepts recap
-    slide = prs.slides.add_slide(prs.slide_layouts[6])
-    slide.background.fill.solid()
-    slide.background.fill.fore_color.rgb = RGBColor.from_string("071A33")
-    M.add_shape(slide.shapes, scene["slides"][0]["shapes"][0])  # navy background
-    M.add_shape(slide.shapes, text("Heading: Summary", "Summary", 60, 60, 1000, 80, 40, bold=True, align="l"))
+    def add(sl, d, items=None, t=None):
+        sh = M.add_shape(sl.shapes, d)
+        if items is not None:
+            items.append((sh.shape_id, fade_in(t, 0.5)))
+        return sh
+
     ap = os.path.join(DEL, "assets_png"); os.makedirs(ap, exist_ok=True)
     sp = os.path.join(DEL, "slides_png")
-    imgs = [
-        crop(os.path.join(sp, "slide2_final_state.png"), (290, 93, 1770, 1080), os.path.join(ap, "concept_seafloor_spreading.png"), (1200, 800)),
-        crop(os.path.join(sp, "slide3_final_state.png"), (240, 40, 1680, 1000), os.path.join(ap, "concept_half_vs_full_rate.png"), (1200, 800)),
-        crop(os.path.join(sp, "slide4_magnetic_stripes_state.png"), (380, 190, 1540, 963), os.path.join(ap, "concept_magnetic_stripes.png"), (1200, 800)),
-    ]
-    captions = ["(a) Seafloor spreading", "(b) Half vs full rate", "(c) Magnetic stripes"]
-    items = []
-    for i, (cap, img) in enumerate(zip(captions, imgs)):
-        x, y, w = 60 + i * 610, 190, 580
-        g = slide.shapes.add_group_shape()
-        pic = g.shapes.add_picture(img, M.E(x), M.E(y), M.E(w), M.E(w * 2 / 3))
-        pic.name = "Figure " + cap
-        M.add_shape(g.shapes, rect("Figure border", x, y, w, w * 2 / 3,
-                                   ln={"color": "3A5575", "w": 2, "a": 1, "dash": None}))
-        M.add_shape(g.shapes, text("Caption", cap, x, y + w * 2 / 3 + 14, w, 48, 22, color="E6EDF4", align="l"))
-        g.name = "Figure " + cap
-        items.append((g.shape_id, fade_in(0.2 + 0.4 * i, 0.5)))
-    g = slide.shapes.add_group_shape()
-    M.add_shape(g.shapes, text("Relation", "Half-spreading rate = distance from ridge ÷ age", 60, 760, 1800, 80, 30, bold=True))
-    M.add_shape(g.shapes, text("Citation", "(Fowler, 2005; Vine and Matthews, 1963)", 60, 850, 1800, 44, 18, color="C9D6E3"))
-    g.name = "Key relation"
-    items.append((g.shape_id, fade_in(1.6, 0.5)))
+
+    # 2 -- definition: half vs full spreading rate
+    slide = plain_slide(); items = []
+    add(slide, text("Heading", "What is a spreading rate?", 60, 46, 1200, 80, 40, bold=True, align="l"))
+    img = crop(os.path.join(sp, "slide3_final_state.png"), (240, 40, 1680, 1000),
+               os.path.join(ap, "definition_half_vs_full_rate.png"), (1440, 960))
+    pic = slide.shapes.add_picture(img, M.E(60), M.E(150), M.E(1110), M.E(740)); pic.name = "Figure: half vs full rate"
+    items.append((pic.shape_id, fade_in(0.2, 0.5)))
+    add(slide, rect("Figure border", 60, 150, 1110, 740, ln={"color": "3A5575", "w": 2, "a": 1, "dash": None}))
+    add(slide, rich("Figure caption", [[("Schematic ridge cross-section (own work). Example values; symmetric spreading assumed.", 0)]],
+                    60, 906, 1110, 16, color="9FB3C8"), items, 0.2)
+    add(slide, text("Term: half", "Half-spreading rate", 1230, 160, 630, 50, 26, bold=True, color=C["cyan"], align="l"), items, 0.8)
+    add(slide, rich("Definition: half", [[("How fast one plate moves away from the ridge axis.", 0)]],
+                    1230, 218, 630, 20), items, 0.8)
+    add(slide, text("Term: full", "Full-spreading rate", 1230, 360, 630, 50, 26, bold=True, align="l"), items, 1.6)
+    add(slide, rich("Definition: full", [[("How fast the two plates move apart. It equals 2 \u00d7 the half-rate only when spreading is symmetric.", 0)]],
+                    1230, 418, 630, 20), items, 1.6)
+    add(slide, rich("Note: units", [[("Both are usually given in cm per year.", 0)]], 1230, 600, 630, 18, color="9FB3C8"), items, 1.6)
+    add(slide, text("Citation", "(Fowler, 2005; M\u00fcller et al., 2008)", 1230, 680, 630, 40, 16, color="C9D6E3", align="l"), items, 0.2)
     set_transition(slide, fade=True)
     put_timing(slide, M.Timing().build(items))
     slide.notes_slide.notes_text_frame.text = (
-        "Recap after your demonstration (speak, don't read): seafloor spreading creates new crust at the ridge; "
-        "half-rate is one side relative to the ridge, full-rate is plate separation; "
-        "mirror-image magnetic stripes plus their ages give the rate (distance divided by age). Figures fade in automatically.")
+        "About 7 s. Say in your own words: the half-spreading rate is how fast one side moves away from the ridge; "
+        "the full rate is how fast the two plates separate - double the half-rate if spreading is symmetric.")
 
-    # 4 -- references end card
-    video_slide(prs, os.path.join(DEL, "video", "Spreading_Rates_References_EndCard.mp4"),
-                os.path.join(DEL, "slides_png", "slide5_references_end_card.png"), scene["endcard"]["adv"],
-                "Auto-plays the references end card (Harvard, Cite Them Right). Hold on the last frame.")
+    # 3 -- measuring it from magnetic stripes (simulated figure)
+    slide = plain_slide(); items = []
+    add(slide, text("Heading", "Measuring it from magnetic stripes", 60, 46, 1400, 80, 40, bold=True, align="l"))
+    pic = slide.shapes.add_picture(os.path.join(ap, "simulated_magnetic_anomaly_profile.png"),
+                                   M.E(60), M.E(140), M.E(1800), M.E(640))
+    pic.name = "Figure: simulated magnetic anomaly profile"
+    items.append((pic.shape_id, fade_in(0.2, 0.5)))
+    add(slide, rich("Figure caption", [[(
+        "Simulated magnetic anomaly profile (own work) for a ridge with a half-spreading rate of 2 cm/yr, "
+        "using reversal ages from GTS2012 (Ogg, 2012). Real surveys show the same mirror-image pattern (Vine and Matthews, 1963).", 0)]],
+        60, 800, 1800, 18, color="C9D6E3"), items, 0.6)
+    add(slide, rich("Key point", [[(
+        "Half-spreading rate = distance from the ridge \u00f7 age. Measured full rates range from about 2\u20134 cm/yr "
+        "(Mid-Atlantic Ridge) to about 15 cm/yr (East Pacific Rise) (DeMets, Gordon and Argus, 2010).", 0)]],
+        60, 900, 1800, 20), items, 1.4)
+    set_transition(slide, fade=True)
+    put_timing(slide, M.Timing().build(items))
+    slide.notes_slide.notes_text_frame.text = (
+        "About 7 s. Point out that the stripe pattern is the same on both sides, and that distance divided by age gives the rate. "
+        "Then cut to camera for the paper-strip demonstration.")
+
+    # 4 -- closing animation + references (played after the on-camera demo)
+    clipf = os.path.join(DEL, "video", "Spreading_Rates_Animation_with_References.mp4")
+    video_slide(prs, clipf, os.path.join(DEL, "video", "clip_poster.png"), clip["total"],
+                "Plays automatically (%.1f s): seafloor spreading -> magnetic stripes -> paper-strip model -> references. "
+                "Voice-over lines: see Narration_and_Timing_Guide.md." % clip["total"])
 
     out = os.path.join(DEL, "Spreading_Rates_Presentation.pptx")
     prs.save(out)
