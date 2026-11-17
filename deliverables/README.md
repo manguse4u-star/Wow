@@ -8,12 +8,14 @@
 | C. Vector diagrams (SVG, final state of each slide, editable in Illustrator/Inkscape) | `assets_svg/` |
 | C. Storyboard frames, one per second (1080p) | `storyboard/` |
 | D. Narration script and exact timing | `Narration_and_Timing_Guide.md` (narration lines are also in each slide's Speaker Notes) |
-| E. References | `References.md` |
+| E. References (Harvard, Cite Them Right) | `References.md` |
+| References end card, 4 s (place at the very end of the video, after Part 2) | `Spreading_Rates_References_EndCard.mp4` · `slides_png/slide5_references_end_card.png` · hidden slide 5 in the PPTX |
 | Final QC against brief §9 | `QC_Checklist.md` |
 
 ## What is in the PPTX
 - Every graphic is a native, editable PowerPoint shape: freeform cross-sections, arrows, rectangles, ovals, and text boxes (Arial). The plates are grouped ("Left plate", "Right plate"), and every shape is named in the Selection Pane.
 - Real PowerPoint animations, all auto-run ("With Previous" + delay): Fade, Wipe (From Bottom/Left/Right), Split (Vertical Out), custom Motion Paths (linear, or with smooth start/end), and Fade exits.
+- Slide 5 holds the References end card. It is **hidden**, so playing the deck or exporting it as video still gives exactly the 25 s Part 1. In-text citations sit on slides 2–4.
 - Slide timing: slide 1 advances after 5.0 s. Slides 2–4 use a 0.5 s **Fade** transition, then advance after 6.5 s, 6.5 s and 5.5 s. Total = 25.0 s.
 - **Edit view looks busier than playback.** Shapes sit at their *pre-animation* positions. On slide 4, for example, all stripe bands are stacked at the ridge because they move outward during the show. Use Slide Show or the Animation Pane to see the real result.
 
@@ -41,6 +43,7 @@ node render.js ../deliverables   # -> MP4, slide PNGs, SVGs, storyboard (needs p
 To put your student number in, edit the `"Student Number: [PLACEHOLDER]"` string in `scene.py` and rebuild.
 
 ## Editing-suite tips
+- Final order: Part 1 MP4 (0:00–0:25) → you on camera (0:25–1:00) → `Spreading_Rates_References_EndCard.mp4` (4 s). The end card is a credit-style reference frame, not narration, so it should not count as content overrun; if your marker counts every second, trim Part 2 by 2–3 s.
 - Lay the voice-over on the MP4 using the timings in the guide.
 - Cut to camera at exactly 0:25.00. The last 0.2 s holds still on the paper-strip model, which gives you a clean cut point.
 - Fonts: Arial is used for maximum compatibility (Aptos is missing from older Office installs). To switch to Aptos, change `FONT` in `scene.py`.

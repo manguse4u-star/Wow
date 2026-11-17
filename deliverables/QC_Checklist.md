@@ -10,7 +10,7 @@
 | 6 | Clear at 1080p / on a phone | ✅ Smallest text is 20 pt (40 px tall at 1080p). Labels are 24–48 pt. Light text on navy, dark pill behind labels on the mantle |
 | 7 | Last slide transitions to the paper-strip demo | ✅ Ends on two black-and-white strips and a cardboard ridge, held still for the cut at 0:25 |
 | 8 | No misconceptions | ✅ New crust forms only at the axis. Plates move away rigidly; no old crust rises from the mantle. Melting shown as mantle upwelling, with no piston. Half-rate is drawn relative to the ridge and full-rate as plate separation, with a "symmetric" caveat. Stripes are labelled by polarity, not rock colour or type |
-| 9 | Credible references, separate from the video | ✅ `References.md`. Online check of the links was blocked by this session's network, so please click each once and add an access date |
+| 9 | Credible references | ✅ Harvard (Cite Them Right): an end card after Part 2 (4 s clip + hidden PPTX slide 5), in-text citations on slides 2–4, and the full list in `References.md`. Online check of the links was blocked by this session's network, so please click each once and confirm the access date |
 | 10 | Actual files delivered | ✅ PPTX, MP4, 4K PNGs, SVGs, storyboard, guide, references |
 
 Technical checks: the PPTX passes OOXML schema validation. The MP4 is H.264 yuv420p and ffmpeg `blackdetect` found 0 black segments.

@@ -137,6 +137,24 @@ def add_shape(shapes, d):
         r.font.size = Pt(d["size"])
         r.font.bold = d["bold"]
         r.font.color.rgb = RGBColor.from_string(d["color"])
+    elif k == "rich":
+        s = shapes.add_textbox(E(d["x"]), E(d["y"]), E(d["w"]), E(d["h"]))
+        tf = s.text_frame
+        tf.word_wrap = True
+        tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
+        tf.vertical_anchor = MSO_ANCHOR.TOP
+        for i, para in enumerate(d["paras"]):
+            p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
+            p.alignment = PP_ALIGN.LEFT
+            p.line_spacing = Pt(d["size"] * d["line"])
+            p.space_after = Pt(d["size"] * d["gap"])
+            for t, it in para["runs"]:
+                r = p.add_run()
+                r.text = t
+                r.font.name = FONT
+                r.font.size = Pt(d["size"])
+                r.font.italic = bool(it)
+                r.font.color.rgb = RGBColor.from_string(d["color"])
     else:
         raise ValueError(k)
     s.name = d["name"]
@@ -293,7 +311,7 @@ def main(out):
     prs.core_properties.title = "Spreading Rates - How Fast Is the Ocean Floor Moving?"
     prs.core_properties.author = "Edwin Wang"
     blank = prs.slide_layouts[6]
-    for sd in scene["slides"]:
+    for sd in scene["slides"] + [scene["endcard"]]:
         slide = prs.slides.add_slide(blank)
         bg = slide.background.fill
         bg.solid()
@@ -314,6 +332,8 @@ def main(out):
         if items:
             tr.addnext(Timing().build(items))
         slide.notes_slide.notes_text_frame.text = sd["notes"]
+        if sd.get("hidden"):
+            sld.set("show", "0")  # hidden: skipped by slide show / video export of Part 1
     prs.save(out)
     print("saved", out)
 

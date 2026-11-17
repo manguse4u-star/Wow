@@ -112,8 +112,11 @@ Suggested Part 2 beats (about 35 s; speak them, don't read them):
 
 ---
 
+## End card (after Part 2)
+`Spreading_Rates_References_EndCard.mp4`, 4 s, no narration: the heading and Harvard reference list fade in over a still background. Cut to it straight after your on-camera conclusion.
+
 ## On-screen text check (all permitted types)
-Title, subtitle, name, student number, and short diagram labels only: Mid-Ocean Ridge · Magma · New Oceanic Crust · Half-Spreading Rate · Full-Spreading Rate · 2 cm/yr · 4 cm/yr · relative to ridge · relative plate separation · 2 + 2 = 4 cm/yr · Illustrative values (symmetric spreading) · Magnetic Stripes · Normal Polarity · Reversed Polarity. No sentences or paragraphs.
+Title, subtitle, name, student number, and short diagram labels only: Mid-Ocean Ridge · Magma · New Oceanic Crust · Half-Spreading Rate · Full-Spreading Rate · 2 cm/yr · 4 cm/yr · relative to ridge · relative plate separation · 2 + 2 = 4 cm/yr · Illustrative values (symmetric spreading) · Magnetic Stripes · Normal Polarity · Reversed Polarity. Short Harvard in-text citations also appear on slides 2–4. No sentences or paragraphs.
 
 ## Scientific notes (why the diagrams are drawn this way)
 - **Seafloor depth and lithosphere thickness increase with distance from the ridge** along a square-root curve, matching the observed depth ∝ √age cooling relationship (Parsons & Sclater, 1977). This is why the ridge stands high.

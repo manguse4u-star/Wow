@@ -9210,6 +9210,33 @@
       640,
       60
      ]
+    },
+    {
+     "kind": "text",
+     "name": "Citation",
+     "text": "(NOAA Ocean Exploration, no date; Parsons and Sclater, 1977)",
+     "x": 40,
+     "y": 28,
+     "w": 1100,
+     "h": 44,
+     "size": 18,
+     "color": "C9D6E3",
+     "bold": false,
+     "align": "l",
+     "a": 1.0,
+     "fx": [
+      {
+       "type": "fade_in",
+       "s": 0.2,
+       "d": 0.5
+      }
+     ],
+     "bbox": [
+      40,
+      28,
+      1100,
+      44
+     ]
     }
    ],
    "notes": "Narration (0:05-0:12): \"At mid-ocean ridges, plates separate, and rising magma forms new oceanic crust.\"",
@@ -14682,6 +14709,33 @@
       880,
       48
      ]
+    },
+    {
+     "kind": "text",
+     "name": "Citation",
+     "text": "(Fowler, 2005; M\u00fcller et al., 2008)",
+     "x": 40,
+     "y": 1006,
+     "w": 700,
+     "h": 44,
+     "size": 18,
+     "color": "C9D6E3",
+     "bold": false,
+     "align": "l",
+     "a": 1.0,
+     "fx": [
+      {
+       "type": "fade_in",
+       "s": 5.0,
+       "d": 0.5
+      }
+     ],
+     "bbox": [
+      40,
+      1006,
+      700,
+      44
+     ]
     }
    ],
    "notes": "Narration (0:12-0:19): \"Each side's motion is a half-spreading rate. Together, they give the full separation rate.\"",
@@ -15921,10 +15975,453 @@
       68,
       360
      ]
+    },
+    {
+     "kind": "text",
+     "name": "Citation",
+     "text": "(Vine and Matthews, 1963; Kious and Tilling, 1996)",
+     "x": 460,
+     "y": 880,
+     "w": 1000,
+     "h": 44,
+     "size": 18,
+     "color": "C9D6E3",
+     "bold": false,
+     "align": "ctr",
+     "a": 1.0,
+     "fx": [
+      {
+       "type": "fade_in",
+       "s": 2.6,
+       "d": 0.5
+      },
+      {
+       "type": "fade_out",
+       "s": 4.4,
+       "d": 0.6
+      }
+     ],
+     "bbox": [
+      460,
+      880,
+      1000,
+      44
+     ]
     }
    ],
    "notes": "Narration (0:19-0:25): \"Magnetic stripes record past field reversals. Here's how the pattern forms.\" [CUT to camera: presenter holding the paper-strip model]",
    "t0": 19.0
   }
- ]
+ ],
+ "endcard": {
+  "name": "References (end card)",
+  "adv": 4.0,
+  "transition": 0.0,
+  "shapes": [
+   {
+    "kind": "rect",
+    "name": "Background",
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080,
+    "r": 0,
+    "fill": {
+     "type": "grad",
+     "angle": 90,
+     "stops": [
+      [
+       0,
+       "05122A",
+       1
+      ],
+      [
+       1,
+       "0B2C4E",
+       1
+      ]
+     ]
+    },
+    "line": null,
+    "glow": null,
+    "soft": null,
+    "fx": [],
+    "bbox": [
+     0,
+     0,
+     1920,
+     1080
+    ]
+   },
+   {
+    "kind": "ellipse",
+    "name": "Surface light",
+    "x": -140,
+    "y": -540,
+    "w": 2200,
+    "h": 840,
+    "fill": {
+     "type": "grad",
+     "angle": 90,
+     "stops": [
+      [
+       0,
+       "4FB3D9",
+       0.1
+      ],
+      [
+       1,
+       "4FB3D9",
+       0.0
+      ]
+     ]
+    },
+    "line": null,
+    "glow": null,
+    "soft": 160,
+    "fx": [],
+    "bbox": [
+     -140,
+     -540,
+     2200,
+     840
+    ]
+   },
+   {
+    "kind": "text",
+    "name": "Heading: References",
+    "text": "References",
+    "x": 120,
+    "y": 60,
+    "w": 1680,
+    "h": 90,
+    "size": 40,
+    "color": "F2F6FA",
+    "bold": true,
+    "align": "l",
+    "a": 1.0,
+    "fx": [
+     {
+      "type": "fade_in",
+      "s": 0.0,
+      "d": 0.5
+     }
+    ],
+    "bbox": [
+     120,
+     60,
+     1680,
+     90
+    ]
+   },
+   {
+    "kind": "rich",
+    "name": "Reference list",
+    "x": 120,
+    "y": 175,
+    "w": 1680,
+    "h": 788.5000000000001,
+    "size": 19,
+    "line": 1.2,
+    "gap": 0.55,
+    "color": "E6EDF4",
+    "paras": [
+     {
+      "runs": [
+       [
+        "Fowler, C.M.R. (2005) ",
+        0
+       ],
+       [
+        "The solid Earth: an introduction to global geophysics",
+        1
+       ],
+       [
+        ". 2nd edn. Cambridge: Cambridge University Press.",
+        0
+       ]
+      ],
+      "lines": [
+       [
+        [
+         "Fowler, C.M.R. (2005) ",
+         0
+        ],
+        [
+         "The solid Earth: an introduction to global geophysics",
+         1
+        ],
+        [
+         ". 2nd edn. Cambridge:",
+         0
+        ]
+       ],
+       [
+        [
+         "Cambridge University Press.",
+         0
+        ]
+       ]
+      ],
+      "y": 0.0
+     },
+     {
+      "runs": [
+       [
+        "Kious, W.J. and Tilling, R.I. (1996) ",
+        0
+       ],
+       [
+        "This dynamic Earth: the story of plate tectonics",
+        1
+       ],
+       [
+        ". Reston, VA: U.S. Geological Survey. Available at: https://pubs.usgs.gov/gip/dynamic/dynamic.html (Accessed: 17 November 2026).",
+        0
+       ]
+      ],
+      "lines": [
+       [
+        [
+         "Kious, W.J. and Tilling, R.I. (1996) ",
+         0
+        ],
+        [
+         "This dynamic Earth: the story of plate tectonics",
+         1
+        ],
+        [
+         ". Reston, VA:",
+         0
+        ]
+       ],
+       [
+        [
+         "U.S. Geological Survey. Available at: https://pubs.usgs.gov/gip/dynamic/dynamic.html (Accessed:",
+         0
+        ]
+       ],
+       [
+        [
+         "17 November 2026).",
+         0
+        ]
+       ]
+      ],
+      "y": 112.10000000000001
+     },
+     {
+      "runs": [
+       [
+        "M\u00fcller, R.D. et al. (2008) \u2018Age, spreading rates, and spreading asymmetry of the world\u2019s ocean crust\u2019, ",
+        0
+       ],
+       [
+        "Geochemistry, Geophysics, Geosystems",
+        1
+       ],
+       [
+        ", 9(4), Q04006. Available at: https://doi.org/10.1029/2007GC001743.",
+        0
+       ]
+      ],
+      "lines": [
+       [
+        [
+         "M\u00fcller, R.D. et al. (2008) \u2018Age, spreading rates, and spreading asymmetry of the world\u2019s ocean",
+         0
+        ]
+       ],
+       [
+        [
+         "crust\u2019, ",
+         0
+        ],
+        [
+         "Geochemistry, Geophysics, Geosystems",
+         1
+        ],
+        [
+         ", 9(4), Q04006. Available at:",
+         0
+        ]
+       ],
+       [
+        [
+         "https://doi.org/10.1029/2007GC001743.",
+         0
+        ]
+       ]
+      ],
+      "y": 269.8
+     },
+     {
+      "runs": [
+       [
+        "NOAA Ocean Exploration (no date) ",
+        0
+       ],
+       [
+        "What is a mid-ocean ridge?",
+        1
+       ],
+       [
+        " Available at: https://oceanexplorer.noaa.gov/facts/mid-ocean-ridge.html (Accessed: 17 November 2026).",
+        0
+       ]
+      ],
+      "lines": [
+       [
+        [
+         "NOAA Ocean Exploration (no date) ",
+         0
+        ],
+        [
+         "What is a mid-ocean ridge?",
+         1
+        ],
+        [
+         " Available at:",
+         0
+        ]
+       ],
+       [
+        [
+         "https://oceanexplorer.noaa.gov/facts/mid-ocean-ridge.html (Accessed: 17 November 2026).",
+         0
+        ]
+       ]
+      ],
+      "y": 427.5
+     },
+     {
+      "runs": [
+       [
+        "Parsons, B. and Sclater, J.G. (1977) \u2018An analysis of the variation of ocean floor bathymetry and heat flow with age\u2019, ",
+        0
+       ],
+       [
+        "Journal of Geophysical Research",
+        1
+       ],
+       [
+        ", 82(5), pp. 803\u2013827. Available at: https://doi.org/10.1029/JB082i005p00803.",
+        0
+       ]
+      ],
+      "lines": [
+       [
+        [
+         "Parsons, B. and Sclater, J.G. (1977) \u2018An analysis of the variation of ocean floor bathymetry and",
+         0
+        ]
+       ],
+       [
+        [
+         "heat flow with age\u2019, ",
+         0
+        ],
+        [
+         "Journal of Geophysical Research",
+         1
+        ],
+        [
+         ", 82(5), pp. 803\u2013827. Available at:",
+         0
+        ]
+       ],
+       [
+        [
+         "https://doi.org/10.1029/JB082i005p00803.",
+         0
+        ]
+       ]
+      ],
+      "y": 539.6
+     },
+     {
+      "runs": [
+       [
+        "Vine, F.J. and Matthews, D.H. (1963) \u2018Magnetic anomalies over oceanic ridges\u2019, ",
+        0
+       ],
+       [
+        "Nature",
+        1
+       ],
+       [
+        ", 199(4897), pp. 947\u2013949. Available at: https://doi.org/10.1038/199947a0.",
+        0
+       ]
+      ],
+      "lines": [
+       [
+        [
+         "Vine, F.J. and Matthews, D.H. (1963) \u2018Magnetic anomalies over oceanic ridges\u2019, ",
+         0
+        ],
+        [
+         "Nature",
+         1
+        ],
+        [
+         ",",
+         0
+        ]
+       ],
+       [
+        [
+         "199(4897), pp. 947\u2013949. Available at: https://doi.org/10.1038/199947a0.",
+         0
+        ]
+       ]
+      ],
+      "y": 697.3000000000001
+     }
+    ],
+    "fx": [
+     {
+      "type": "fade_in",
+      "s": 0.2,
+      "d": 0.6
+     }
+    ],
+    "bbox": [
+     120,
+     175,
+     1680,
+     788.5000000000001
+    ]
+   },
+   {
+    "kind": "text",
+    "name": "Footer: style",
+    "text": "Referencing style: Harvard (Cite Them Right)",
+    "x": 120,
+    "y": 1000,
+    "w": 1680,
+    "h": 40,
+    "size": 16,
+    "color": "9FB3C8",
+    "bold": false,
+    "align": "l",
+    "a": 1.0,
+    "fx": [
+     {
+      "type": "fade_in",
+      "s": 0.2,
+      "d": 0.6
+     }
+    ],
+    "bbox": [
+     120,
+     1000,
+     1680,
+     40
+    ]
+   }
+  ],
+  "hidden": true,
+  "notes": "End card: place after the on-camera demonstration (after 1:00 of content). This slide is HIDDEN so the 25-second Part 1 export is unaffected; a ready-made clip is supplied as Spreading_Rates_References_EndCard.mp4."
+ }
 }

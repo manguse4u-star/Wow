@@ -82,6 +82,18 @@ function pageCode() {
       return `<text x="${x}" y="${sh.y + sh.h / 2}" font-family="Arial, 'Liberation Sans', sans-serif" font-size="${sh.size * 2}" ` +
         `font-weight="${sh.bold ? 700 : 400}" fill="#${sh.color}" text-anchor="${anchor}" dominant-baseline="central">${esc(sh.text)}</text>`;
     }
+    if (sh.kind === 'rich') {
+      const px = sh.size * 2, lh = px * sh.line;
+      let o = '';
+      for (const para of sh.paras) {
+        para.lines.forEach((ln, i) => {
+          const y = sh.y + para.y + lh * (i + 0.5);
+          o += `<text x="${sh.x}" y="${y}" font-family="Arial, 'Liberation Sans', sans-serif" font-size="${px}" fill="#${sh.color}" dominant-baseline="central" xml:space="preserve">` +
+            ln.map(([t, it]) => `<tspan${it ? ' font-style="italic"' : ''}>${esc(t)}</tspan>`).join('') + '</text>';
+        });
+      }
+      return o;
+    }
     let out = '';
     if (sh.glow) {
       const id = 'f' + uid++;
@@ -129,7 +141,7 @@ function pageCode() {
     let body = '';
     const S = window.SCENE.slides;
     if (onlySlide !== undefined) {
-      body = drawSlide(S[onlySlide], localT, defs);
+      body = drawSlide(onlySlide === 'E' ? window.SCENE.endcard : S[onlySlide], localT, defs);
     } else {
       let i = S.length - 1;
       for (let k = 0; k < S.length; k++) if (T < S[k].t0 + S[k].transition + S[k].adv) { i = k; break; }
@@ -175,6 +187,32 @@ async function main() {
       await page1.evaluate((s) => window.show(s), svg);
       await page1.screenshot({ path: path.join(dirK, `t${T.toFixed(1).padStart(4, '0')}s.png`) });
     }
+  }
+
+  if (MODE === 'all' || MODE === '--endcard') {
+    const ec = scene.endcard;
+    const page2 = await mk(2);
+    fs.mkdirSync(path.join(OUT, 'slides_png'), { recursive: true });
+    fs.mkdirSync(path.join(OUT, 'assets_svg'), { recursive: true });
+    const svgE = await page2.evaluate((t) => window.svgAt(0, 'E', t), ec.adv);
+    fs.writeFileSync(path.join(OUT, 'assets_svg', 'slide5_references_end_card.svg'), svgE);
+    await page2.evaluate((s) => window.show(s), svgE);
+    await page2.screenshot({ path: path.join(OUT, 'slides_png', 'slide5_references_end_card.png') });
+    const page = await mk(1);
+    const n = Math.round(ec.adv * scene.fps);
+    const mp4 = path.join(OUT, 'Spreading_Rates_References_EndCard.mp4');
+    const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(scene.fps), '-i', '-',
+      '-c:v', 'libx264', '-preset', 'slow', '-crf', '15', '-pix_fmt', 'yuv420p', '-r', String(scene.fps),
+      '-movflags', '+faststart', mp4], { stdio: ['pipe', 'inherit', 'inherit'] });
+    for (let f = 0; f < n; f++) {
+      const svg = await page.evaluate((t) => window.svgAt(0, 'E', t), f / scene.fps);
+      await page.evaluate((s) => window.show(s), svg);
+      const buf = await page.screenshot({ type: 'png' });
+      if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once('drain', r));
+    }
+    ff.stdin.end();
+    await new Promise((r) => ff.on('close', r));
+    console.log('wrote', mp4);
   }
 
   if (MODE === 'all' || MODE === '--frames-only') {

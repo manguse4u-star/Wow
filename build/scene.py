@@ -75,6 +75,61 @@ def text(name, s, x, y, w, h, size, color=None, bold=False, align="ctr", fx=None
                 bbox=[x, y, w, h])
 
 
+_FONTS = {}
+
+
+def _font(bold, italic, px):
+    key = (bold, italic, px)
+    if key not in _FONTS:
+        from PIL import ImageFont
+        name = "LiberationSans-" + {(0, 0): "Regular", (1, 0): "Bold", (0, 1): "Italic", (1, 1): "BoldItalic"}[(int(bold), int(italic))]
+        _FONTS[key] = ImageFont.truetype("/usr/share/fonts/truetype/liberation/%s.ttf" % name, px)
+    return _FONTS[key]
+
+
+def rich(name, paras, x, y, w, size, color=None, line=1.2, gap=0.55, fx=None):
+    """paras: list of paragraphs, each a list of (text, italic) runs.
+    Lines are wrapped here with Arial-metric widths (Liberation Sans); PowerPoint
+    wraps the same paragraphs itself in a box of the same width."""
+    px = size * 2
+    lh = px * line
+    out, yy = [], 0.0
+    for runs in paras:
+        words = []
+        for t, it in runs:
+            for i, tok in enumerate(t.split(" ")):
+                if i > 0:
+                    words.append((" ", it))
+                if tok:
+                    words.append((tok, it))
+        lines, cur, cw = [], [], 0.0
+        for tok, it in words:
+            tw = _font(False, it, px).getlength(tok)
+            if tok != " " and cur and cw + tw > w * 0.985:
+                while cur and cur[-1][0] == " ":
+                    cw -= _font(False, cur[-1][1], px).getlength(" "); cur.pop()
+                lines.append(cur); cur, cw = [], 0.0
+            if tok == " " and not cur:
+                continue
+            cur.append([tok, it]); cw += tw
+        if cur:
+            lines.append(cur)
+        merged = []
+        for ln in lines:  # merge consecutive tokens with same style
+            m = []
+            for tok, it in ln:
+                if m and m[-1][1] == it:
+                    m[-1][0] += tok
+                else:
+                    m.append([tok, it])
+            merged.append(m)
+        out.append({"runs": [[t, it] for t, it in runs], "lines": merged, "y": yy})
+        yy += lh * len(merged) + px * gap
+    h = yy - px * gap
+    return dict(kind="rich", name=name, x=x, y=y, w=w, h=h, size=size, line=line, gap=gap,
+                color=color or C["text"], paras=out, fx=fx or [], bbox=[x, y, w, h])
+
+
 def group(name, children, fx=None):
     xs, ys, xe, ye = [], [], [], []
     for c in children:
@@ -292,6 +347,8 @@ def slide2():
                        ln=line(C["text"], 3), fx=[fade_in(4.9, 0.5)]))
     shapes.append(text("Label: New Oceanic Crust", "New Oceanic Crust", 1150, 430, 640, 60, 30, bold=True,
                        align="l", fx=[fade_in(4.9, 0.5)]))
+    shapes.append(text("Citation", "(NOAA Ocean Exploration, no date; Parsons and Sclater, 1977)",
+                       40, 28, 1100, 44, 18, color="C9D6E3", align="l", fx=[fade_in(0.2, 0.5)]))
     return dict(name="Seafloor spreading", adv=6.5, transition=0.5, shapes=shapes,
                 notes="Narration (0:05-0:12): \"At mid-ocean ridges, plates separate, and rising magma forms new oceanic crust.\"")
 
@@ -344,6 +401,8 @@ def slide3():
                        fx=[fade_in(5.0, 0.5)]))
     shapes.append(text("Caption: illustrative values", "Illustrative values (symmetric spreading)",
                        1000, 1004, 880, 48, 20, color="C9D6E3", align="r", fx=[fade_in(5.0, 0.5)]))
+    shapes.append(text("Citation", "(Fowler, 2005; Müller et al., 2008)",
+                       40, 1006, 700, 44, 18, color="C9D6E3", align="l", fx=[fade_in(5.0, 0.5)]))
     return dict(name="Half vs full spreading rate", adv=6.5, transition=0.5, shapes=shapes,
                 notes="Narration (0:12-0:19): \"Each side's motion is a half-spreading rate. Together, they give the full separation rate.\"")
 
@@ -431,9 +490,43 @@ def slide4():
     shapes.append(rect("Cardboard ridge", CX - 34, py0 - 60, 68, ph + 120, r=6,
                        fill=grad([(0, "B99568", 1), (1, C["cardboard"], 1)], 0), ln=line(C["cardboard_dark"], 3),
                        fx=[fade_in(4.5, 0.8)]))
+    shapes.append(text("Citation", "(Vine and Matthews, 1963; Kious and Tilling, 1996)",
+                       460, 880, 1000, 44, 18, color="C9D6E3", fx=[fade_in(2.6, 0.5), fade_out(4.4, 0.6)]))
     return dict(name="Magnetic stripes", adv=5.5, transition=0.5, shapes=shapes,
                 notes="Narration (0:19-0:25): \"Magnetic stripes record past field reversals. Here's how the pattern forms.\" "
                       "[CUT to camera: presenter holding the paper-strip model]")
+
+
+# ================================================================ END CARD (references)
+ACCESSED = "17 November 2026"
+REFERENCES = [  # Harvard (Cite Them Right), as recommended by UCL Library; alphabetical
+    [("Fowler, C.M.R. (2005) ", 0), ("The solid Earth: an introduction to global geophysics", 1),
+     (". 2nd edn. Cambridge: Cambridge University Press.", 0)],
+    [("Kious, W.J. and Tilling, R.I. (1996) ", 0), ("This dynamic Earth: the story of plate tectonics", 1),
+     (". Reston, VA: U.S. Geological Survey. Available at: https://pubs.usgs.gov/gip/dynamic/dynamic.html (Accessed: %s)." % ACCESSED, 0)],
+    [("Müller, R.D. et al. (2008) \u2018Age, spreading rates, and spreading asymmetry of the world\u2019s ocean crust\u2019, ", 0),
+     ("Geochemistry, Geophysics, Geosystems", 1), (", 9(4), Q04006. Available at: https://doi.org/10.1029/2007GC001743.", 0)],
+    [("NOAA Ocean Exploration (no date) ", 0), ("What is a mid-ocean ridge?", 1),
+     (" Available at: https://oceanexplorer.noaa.gov/facts/mid-ocean-ridge.html (Accessed: %s)." % ACCESSED, 0)],
+    [("Parsons, B. and Sclater, J.G. (1977) \u2018An analysis of the variation of ocean floor bathymetry and heat flow with age\u2019, ", 0),
+     ("Journal of Geophysical Research", 1), (", 82(5), pp. 803\u2013827. Available at: https://doi.org/10.1029/JB082i005p00803.", 0)],
+    [("Vine, F.J. and Matthews, D.H. (1963) \u2018Magnetic anomalies over oceanic ridges\u2019, ", 0), ("Nature", 1),
+     (", 199(4897), pp. 947\u2013949. Available at: https://doi.org/10.1038/199947a0.", 0)],
+]
+
+
+def endcard():
+    shapes = background()
+    shapes.append(text("Heading: References", "References", 120, 60, 1680, 90, 40, bold=True, align="l",
+                       fx=[fade_in(0.0, 0.5)]))
+    shapes.append(rich("Reference list", REFERENCES, 120, 175, 1680, 19, color="E6EDF4",
+                       fx=[fade_in(0.2, 0.6)]))
+    shapes.append(text("Footer: style", "Referencing style: Harvard (Cite Them Right)",
+                       120, 1000, 1680, 40, 16, color=C["muted"], align="l", fx=[fade_in(0.2, 0.6)]))
+    return dict(name="References (end card)", adv=4.0, transition=0.0, shapes=shapes, hidden=True,
+                notes="End card: place after the on-camera demonstration (after 1:00 of content). "
+                      "This slide is HIDDEN so the 25-second Part 1 export is unaffected; "
+                      "a ready-made clip is supplied as Spreading_Rates_References_EndCard.mp4.")
 
 
 def build():
@@ -450,7 +543,9 @@ def build():
                 if sh["kind"] == "group":
                     walk(sh["children"])
         walk(s["shapes"])
-    return dict(W=W, H=H, fps=30, total=t, font=FONT, slides=slides)
+    ec = endcard()
+    assert ec["shapes"][-2]["y"] + ec["shapes"][-2]["h"] < 990, "reference list too long"
+    return dict(W=W, H=H, fps=30, total=t, font=FONT, slides=slides, endcard=ec)
 
 
 if __name__ == "__main__":
