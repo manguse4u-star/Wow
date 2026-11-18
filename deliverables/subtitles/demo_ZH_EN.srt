@@ -1,0 +1,56 @@
+1
+00:00:01,200 --> 00:00:02,500
+这个是洋中脊。
+This is the mid-ocean ridge.
+
+2
+00:00:02,800 --> 00:00:04,900
+两条纸带分别代表它两边的海底。
+The two paper strips are the seafloor
+on either side of it.
+
+3
+00:00:05,100 --> 00:00:08,100
+当两条纸带往外拉，新的纸从这里长出来，
+When I pull the strips outward,
+new paper comes out from here,
+
+4
+00:00:08,300 --> 00:00:10,900
+就像从洋中脊长出新的洋壳一样。
+just like new oceanic crust
+forming at the ridge.
+
+5
+00:00:11,300 --> 00:00:16,700
+当岩石冷却时，它会记录下当时地磁场的方向。
+As the rock cools, it records the direction
+of Earth's magnetic field at that time.
+
+6
+00:00:17,400 --> 00:00:18,200
+就像这样。
+Like this.
+
+7
+00:00:18,350 --> 00:00:22,500
+而两条纸带所记录下的地磁场方向是完全对称的。
+The magnetic patterns on the two strips
+are perfectly symmetric.
+
+8
+00:00:23,250 --> 00:00:28,700
+那么假设这条磁带离洋中脊有一百公里远，而它的年龄为五百万年，
+Now suppose this stripe is 100 km from the ridge
+and 5 million years old.
+
+9
+00:00:29,050 --> 00:00:31,800
+那么半扩张速率就是一百公里除以五百万年，
+Then the half-spreading rate is
+100 km ÷ 5 million years,
+
+10
+00:00:31,900 --> 00:00:33,700
+也就是两厘米每年。
+which is 2 cm per year.
