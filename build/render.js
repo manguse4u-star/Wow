@@ -237,21 +237,20 @@ async function main() {
   }
 
   // Closing animation for the presentation (played AFTER the on-camera demo):
-  // seafloor spreading -> magnetic stripes -> paper-strip model -> references.
-  // The half/full-rate segment is left out because the PPT slides define those terms.
+  // seafloor spreading -> magnetic stripes -> paper-strip model, then a short hold.
+  // The references follow as an editable PowerPoint slide.
   if (MODE === 'all' || MODE === '--clip') {
     const page = await mk(1);
-    const LEAD = 0.3, XF = 0.5;
-    const A = S[1], B = S[3], E = scene.endcard;
-    const segs = { lead: LEAD, a: A.adv, xf1: XF, b: B.adv, xf2: XF, e: E.adv };
-    const total = LEAD + A.adv + XF + B.adv + XF + E.adv;
-    scene.clip = { ...segs, total };
+    const LEAD = 0.3, XF = 0.5, TAIL = 0.7;
+    const A = S[1], B = S[3];
+    const total = LEAD + A.adv + XF + B.adv + TAIL;
+    scene.clip = { lead: LEAD, a: A.adv, xf: XF, b: B.adv, tail: TAIL, total };
     const n = Math.round(total * scene.fps);
     fs.mkdirSync(path.join(OUT, 'video'), { recursive: true });
     const clipFn = new Function('c', `
-      const S = window.SCENE.slides, E = window.SCENE.endcard, A = S[1], B = S[3];
+      const S = window.SCENE.slides, A = S[1], B = S[3];
       const L = ${LEAD}, X = ${XF};
-      const mix = (svgA, svgB, p) => svgA.replace('</svg>', '') .concat('<g opacity="' + p.toFixed(4) + '">' +
+      const mix = (svgA, svgB, p) => svgA.replace('</svg>', '').concat('<g opacity="' + p.toFixed(4) + '">' +
         svgB.replace(/^<svg[^>]*>/, '').replace('</svg>', '') + '</g></svg>');
       let t = c;
       if (t < L) return window.svgAt(0, 1, 0);
@@ -260,12 +259,8 @@ async function main() {
       t -= A.adv;
       if (t < X) return mix(window.svgAt(0, 1, A.adv), window.svgAt(0, 3, 0), t / X);
       t -= X;
-      if (t < B.adv) return window.svgAt(0, 3, t);
-      t -= B.adv;
-      if (t < X) return mix(window.svgAt(0, 3, B.adv), window.svgAt(0, 'E', 0), t / X);
-      t -= X;
-      return window.svgAt(0, 'E', Math.min(t, E.adv));`);
-    await encode(page, n, clipFn, path.join(OUT, 'video', 'Spreading_Rates_Animation_with_References.mp4'));
+      return window.svgAt(0, 3, Math.min(t, B.adv));`);
+    await encode(page, n, clipFn, path.join(OUT, 'video', 'Spreading_Rates_Closing_Animation.mp4'));
     const page2 = await mk(1);
     const svg0 = await page2.evaluate(() => window.svgAt(0, 1, 0));
     await page2.evaluate((s) => window.show(s), svg0);

@@ -5,25 +5,21 @@ Edwin Wang, student number 25092450
 ## Files
 | File | What it is |
 |---|---|
-| `Spreading_Rates_Presentation.pptx` | **The deck to record from** (4 slides, see below) |
-| `video/Spreading_Rates_Animation_with_References.mp4` | Closing animation with the references card (17.8 s, 1080p30, silent). Also embedded as slide 4 |
-| `Narration_and_Timing_Guide.md` | Recording plan, what to say, and voice-over cues |
-| `References.md` | Harvard reference list, where each source is cited, and image sources |
-| `assets_png/` | Figures used on the slides, including the simulated magnetic anomaly profile (PNG + SVG) |
-| `Spreading_Rates_Animated.pptx`, `Spreading_Rates_PPT_25sec.mp4` | Earlier full version. Every diagram is an editable PowerPoint shape with native animation. Kept as a source/backup |
+| `Spreading_Rates_Presentation.pptx` | **Deck to record from.** Slide 1 intro · slide 2 definition + photo slot · slide 3 closing animation (auto-plays, English subtitles) · slide 4 references (editable) |
+| `video/Demo_with_EN_subtitles.mp4` | Your on-camera demo, first 1 s of silence trimmed, English subtitles burned in (32.5 s). Not pushed to GitHub |
+| `video/Closing_Animation_with_EN_subtitles.mp4` | Closing animation, 13.5 s (also embedded in slide 3); `Spreading_Rates_Closing_Animation.mp4` = no subtitles |
+| `Narration_and_Timing_Guide.md` | Recording order, Chinese script + English subtitles, how to add an online photo |
+| `subtitles/字幕对照_中英.pdf` / `.txt` | Readable bilingual subtitle table; `.srt`/`.ass` = files for editing software |
+| `References.md` | Harvard list, where each source is cited |
+| `Spreading_Rates_Animated.pptx` | Earlier fully editable native-animation version (backup) |
 
-## Deck layout
-1. **Introduction:** title, name, student number.
-2. **What is a spreading rate?** Diagram plus short definitions of half- and full-spreading rate.
-3. **Measuring it from magnetic stripes:** simulated anomaly profile with a caption and the typical range of rates.
-4. **Closing animation and references:** plays automatically. Put this slide after your on-camera demonstration.
+## Final edit order (~63 s)
+PPT slide 1–2 (~13 s) → demo video (32.5 s) → PPT slide 3 animation (13.5 s) → slide 4 references (~4 s).
 
-Slides 1–3 build with short fades and advance on click. The video on slide 4 starts by itself.
-
-## Notes
-- **PowerPoint check:** the deck has not been played in Microsoft PowerPoint, because the build environment has none. Press F5 once to confirm that slide 4's video plays.
-- **Images:** all images are own work, either schematic diagrams or a simulation. Swap in real figures if you prefer, and add their sources to the reference list.
-- **On-screen text vs the brief:** the coursework brief discourages explanatory sentences on screen. Slides 2–3 include short captions because you asked for them. Remove them if your marker is strict about this.
+## Compliance notes
+- On-screen text is limited to titles, short labels, image credits and citations (no explanatory sentences), except the English subtitles of your speech.
+- Online photos are allowed if credited on the slide and listed in the references.
+- Check the deck once in PowerPoint (F5): slide 3's video should play by itself and then move to slide 4.
 
 ## Rebuild after edits
 ```bash

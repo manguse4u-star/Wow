@@ -1,46 +1,44 @@
-# Spreading Rates: Recording Plan and Narration
+# Spreading Rates — 录制方案与讲解稿（Recording plan）
 
-Deck: `Spreading_Rates_Presentation.pptx`. Target length: about 60 seconds.
+Edwin Wang · 25092450 · 目标总长约 60 秒
 
-| # | Part | Source | Length | What happens |
-|---|---|---|---|---|
-| 1 | Introduction | PPT slide 1 | ~5 s | Title, name and student number fade in. You say: "Hi, I'm Edwin. Today, I'll explain seafloor spreading rates." Click to continue. |
-| 2 | Definition | PPT slide 2 | ~7 s | Diagram and definitions of half- and full-spreading rate. Click to continue. |
-| 3 | Measuring it | PPT slide 3 | ~7 s | Simulated magnetic anomaly profile, with caption. |
-| 4 | **On camera** | your footage | ~23 s | Paper-strip and cardboard-ridge demonstration (must be at least 20 s). |
-| 5 | Closing animation + references | PPT slide 4 (auto-plays) = `video/Spreading_Rates_Animation_with_References.mp4` | 17.8 s | Seafloor spreading → magnetic stripes → paper-strip model → references card |
+| 顺序 | 内容 | 来源 | 时长 |
+|---|---|---|---|
+| 1 | 自我介绍 | PPT 第 1 页 | ~4 s |
+| 2 | 定义 + 图片 | PPT 第 2 页 | ~9 s |
+| 3 | 出镜演示（已配英文字幕） | `video/Demo_with_EN_subtitles.mp4`（已裁掉开头 1 s 空白） | 32.5 s |
+| 4 | 结尾动画（已配英文字幕） | PPT 第 3 页自动播放 = `video/Closing_Animation_with_EN_subtitles.mp4` | 13.5 s |
+| 5 | 参考文献 | PPT 第 4 页（动画放完自动切换，可编辑） | ~4 s |
 
-Total: 5 + 7 + 7 + 23 + 17.8 ≈ 60 s.
+合计约 63 秒（"约 60 秒、不明显超时"范围内）。若想更贴近 60 秒：第 2 页讲 7 秒，参考文献停 3 秒。
 
-## What to say (in your own words, not read out)
+## 讲解稿（中文说 / 英文字幕）
 
-**Slide 2 (~7 s).** "A spreading rate is how fast the seafloor moves away from a mid-ocean ridge. The half-rate is one side; the full rate is how fast the two plates separate, which is double the half-rate if spreading is symmetric."
+**PPT 第 1 页（~4 s）**
+- 中：大家好，我是 Edwin，今天讲讲海底扩张速率。
+- EN: Hi, I'm Edwin. Today I'll explain seafloor spreading rates.
 
-**Slide 3 (~7 s).** "We measure it with magnetic stripes. The pattern is the same on both sides of the ridge, and if we know a stripe's distance and age, distance divided by age gives the rate."
+**PPT 第 2 页（~9 s）**
+- 中：扩张速率是洋底离开洋中脊的速度。单侧板块相对洋脊的速度叫半扩张速率，两块板块分开的速度叫全扩张速率，一般每年 2 到 15 厘米。
+- EN: A spreading rate is how fast the seafloor moves away from a ridge. One plate's speed relative to the ridge is the half-spreading rate; the speed at which the two plates separate is the full rate, typically 2 to 15 cm per year.
 
-**On camera (~23 s).**
-1. Open: "This cardboard is the ridge, and these strips are the seafloor on each side."
-2. Pull the strips outward: new paper appears at the ridge, just as new crust forms there, and each stripe records the field polarity when the crust cooled.
-3. Show that the patterns match on both sides.
-4. Work through the example: "If this stripe is 100 km from the ridge and 5 million years old, the half-spreading rate is 100 km divided by 5 million years: 2 cm per year." (100 km = 10,000,000 cm, and 10,000,000 ÷ 5,000,000 = 2.)
-5. Hand over: "Here's the whole process in animation."
+**出镜演示**：已录好，字幕已压入视频（逐句内容见 `subtitles/字幕对照_中英.pdf`）。
 
-## Closing animation: voice-over cues (clip time, seconds)
-
-| Clip time | On screen | Say |
+**PPT 第 3 页 · 结尾动画（动画内秒数，按此节奏配音字幕才对得上）**
+| 时间 | 中文 | 英文字幕 |
 |---|---|---|
-| 0.0–0.3 | Still cross-section | (nothing) |
-| 0.5–1.7 | "Mid-Ocean Ridge" label appears | "At mid-ocean ridges," |
-| 2.2–3.2 | Plates start to separate (2.3 s) | "plates separate," |
-| 3.4–5.9 | Magma rises; new crust opens out from the axis | "and rising magma forms new oceanic crust." |
-| 6.8–7.3 | Cross-fade to the map view | (nothing) |
-| 7.5–10.4 | Stripes form at the ridge and move outward; legend appears | "As new crust cools, it records the magnetic field," |
-| 10.6–12.6 | Matching bands outlined; the diagram becomes the paper-strip model | "giving the mirror-image stripes from my model." |
-| 13.3–17.8 | References card | (nothing; the video ends here) |
+| 0.5–3.4 | 在洋中脊，两侧板块分开， | At mid-ocean ridges, the plates separate, |
+| 3.4–6.2 | 上涌的岩浆形成新的洋壳。 | and rising magma forms new oceanic crust. |
+| 7.5–10.4 | 新洋壳冷却时记录下地磁场， | As the new crust cools, it records Earth's magnetic field, |
+| 10.6–12.8 | 于是形成和我的模型一样的对称条带。 | producing the same symmetric stripes as my model. |
 
-## Scientific notes
-- **Cross-section:** seafloor depth and lithosphere thickness increase with distance from the ridge along a square-root curve, as in Parsons and Sclater (1977).
-- **Magma and new crust:** magma is shown as a melt zone fed by upwelling mantle, which does not push the plates apart. New crust forms only at the axis.
-- **Half- and full-rate:** the half-rate is measured from the ridge axis, and the full rate is the separation of the two plates. Full = 2 × half only for symmetric spreading; real ridges can be asymmetric (Müller et al., 2008).
-- **Stripes:** colours show magnetic polarity (see the legend), not rock type.
-- **Simulated anomaly profile (slide 3):** computed for a half-rate of 2 cm/yr using the major reversal ages of GTS2012 (Ogg, 2012). The model is simplified: thin magnetised layer, vertical field. At this rate, crust 100 km from the axis is 5 Myr old, which matches your on-camera example.
+**PPT 第 4 页 · 参考文献**：不说话。
+
+## 加网上照片的方法
+1. PPT 第 2 页右上角是照片位：右键 → **更改图片**（Change Picture）→ 选你的照片。
+2. 把下面那行 `Image: own work` 改成出处，如 `Image: NOAA Ocean Exploration (2020)`。
+3. 在 PPT 第 4 页参考文献里按字母顺序加一条，格式：
+   `机构/作者 (年份) 图片标题 [Photograph]. Available at: 网址 (Accessed: 访问日期).`
+4. 推荐可靠且可免费使用的来源：NOAA Ocean Exploration、USGS（美国政府作品，公有领域）；或 Wikimedia Commons 上冰岛 Þingvellir 裂谷照片（按页面要求注明作者和许可）。
+
+PPT 第 1、2 页讲解时的英文字幕需要在剪辑软件里自己加（时间取决于你录制时的节奏），文字用上面的英文即可。

@@ -496,12 +496,8 @@ REFERENCES = [  # Harvard (Cite Them Right), as recommended by UCL Library; alph
      (". 2nd edn. Cambridge: Cambridge University Press.", 0)],
     [("Kious, W.J. and Tilling, R.I. (1996) ", 0), ("This dynamic Earth: the story of plate tectonics", 1),
      (". Reston, VA: U.S. Geological Survey. Available at: https://pubs.usgs.gov/gip/dynamic/dynamic.html (Accessed: %s)." % ACCESSED, 0)],
-    [("Müller, R.D. et al. (2008) \u2018Age, spreading rates, and spreading asymmetry of the world\u2019s ocean crust\u2019, ", 0),
-     ("Geochemistry, Geophysics, Geosystems", 1), (", 9(4), Q04006. Available at: https://doi.org/10.1029/2007GC001743.", 0)],
     [("NOAA Ocean Exploration (no date) ", 0), ("What is a mid-ocean ridge?", 1),
      (" Available at: https://oceanexplorer.noaa.gov/facts/mid-ocean-ridge.html (Accessed: %s)." % ACCESSED, 0)],
-    [("Ogg, J.G. (2012) \u2018Geomagnetic polarity time scale\u2019, in Gradstein, F.M. et al. (eds) ", 0),
-     ("The geologic time scale 2012", 1), (". Amsterdam: Elsevier, pp. 85\u2013113.", 0)],
     [("Parsons, B. and Sclater, J.G. (1977) \u2018An analysis of the variation of ocean floor bathymetry and heat flow with age\u2019, ", 0),
      ("Journal of Geophysical Research", 1), (", 82(5), pp. 803\u2013827. Available at: https://doi.org/10.1029/JB082i005p00803.", 0)],
     [("Vine, F.J. and Matthews, D.H. (1963) \u2018Magnetic anomalies over oceanic ridges\u2019, ", 0), ("Nature", 1),
@@ -513,7 +509,7 @@ def endcard():
     shapes = background()
     shapes.append(text("Heading: References", "References", 120, 60, 1680, 90, 40, bold=True, align="l",
                        fx=[fade_in(0.0, 0.5)]))
-    shapes.append(rich("Reference list", REFERENCES, 120, 165, 1680, 16, color="E6EDF4",
+    shapes.append(rich("Reference list", REFERENCES, 120, 175, 1680, 18, color="E6EDF4",
                        fx=[fade_in(0.2, 0.6)]))
     shapes.append(text("Footer: style", "Referencing style: Harvard (Cite Them Right)",
                        120, 1000, 1680, 40, 16, color=C["muted"], align="l", fx=[fade_in(0.2, 0.6)]))

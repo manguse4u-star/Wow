@@ -15843,10 +15843,10 @@
     "kind": "rich",
     "name": "Reference list",
     "x": 120,
-    "y": 165,
+    "y": 175,
     "w": 1680,
-    "h": 737.5999999999999,
-    "size": 16,
+    "h": 703.8,
+    "size": 18,
     "line": 1.2,
     "gap": 0.55,
     "color": "E6EDF4",
@@ -15873,13 +15873,13 @@
          0
         ],
         [
-         "Geophysical Journal",
+         "Geophysical",
          1
         ]
        ],
        [
         [
-         "International",
+         "Journal International",
          1
         ],
         [
@@ -15916,18 +15916,18 @@
          1
         ],
         [
-         ". 2nd edn. Cambridge: Cambridge",
+         ". 2nd edn. Cambridge:",
          0
         ]
        ],
        [
         [
-         "University Press.",
+         "Cambridge University Press.",
          0
         ]
        ]
       ],
-      "y": 94.4
+      "y": 106.19999999999999
      },
      {
       "runs": [
@@ -15955,57 +15955,24 @@
          1
         ],
         [
-         ". Reston, VA: U.S. Geological",
+         ". Reston, VA: U.S.",
          0
         ]
        ],
        [
         [
-         "Survey. Available at: https://pubs.usgs.gov/gip/dynamic/dynamic.html (Accessed: 17 November 2026).",
+         "Geological Survey. Available at: https://pubs.usgs.gov/gip/dynamic/dynamic.html (Accessed: 17",
          0
         ]
-       ]
-      ],
-      "y": 188.8
-     },
-     {
-      "runs": [
-       [
-        "M\u00fcller, R.D. et al. (2008) \u2018Age, spreading rates, and spreading asymmetry of the world\u2019s ocean crust\u2019, ",
-        0
-       ],
-       [
-        "Geochemistry, Geophysics, Geosystems",
-        1
-       ],
-       [
-        ", 9(4), Q04006. Available at: https://doi.org/10.1029/2007GC001743.",
-        0
-       ]
-      ],
-      "lines": [
-       [
-        [
-         "M\u00fcller, R.D. et al. (2008) \u2018Age, spreading rates, and spreading asymmetry of the world\u2019s ocean crust\u2019, ",
-         0
-        ],
-        [
-         "Geochemistry,",
-         1
-        ]
        ],
        [
         [
-         "Geophysics, Geosystems",
-         1
-        ],
-        [
-         ", 9(4), Q04006. Available at: https://doi.org/10.1029/2007GC001743.",
+         "November 2026).",
          0
         ]
        ]
       ],
-      "y": 283.20000000000005
+      "y": 212.39999999999998
      },
      {
       "runs": [
@@ -16044,46 +16011,7 @@
         ]
        ]
       ],
-      "y": 377.6
-     },
-     {
-      "runs": [
-       [
-        "Ogg, J.G. (2012) \u2018Geomagnetic polarity time scale\u2019, in Gradstein, F.M. et al. (eds) ",
-        0
-       ],
-       [
-        "The geologic time scale 2012",
-        1
-       ],
-       [
-        ". Amsterdam: Elsevier, pp. 85\u2013113.",
-        0
-       ]
-      ],
-      "lines": [
-       [
-        [
-         "Ogg, J.G. (2012) \u2018Geomagnetic polarity time scale\u2019, in Gradstein, F.M. et al. (eds) ",
-         0
-        ],
-        [
-         "The geologic time scale 2012",
-         1
-        ],
-        [
-         ".",
-         0
-        ]
-       ],
-       [
-        [
-         "Amsterdam: Elsevier, pp. 85\u2013113.",
-         0
-        ]
-       ]
-      ],
-      "y": 472.0
+      "y": 361.79999999999995
      },
      {
       "runs": [
@@ -16103,22 +16031,32 @@
       "lines": [
        [
         [
-         "Parsons, B. and Sclater, J.G. (1977) \u2018An analysis of the variation of ocean floor bathymetry and heat flow with age\u2019,",
+         "Parsons, B. and Sclater, J.G. (1977) \u2018An analysis of the variation of ocean floor bathymetry and heat",
          0
         ]
        ],
        [
         [
+         "flow with age\u2019, ",
+         0
+        ],
+        [
          "Journal of Geophysical Research",
          1
         ],
         [
-         ", 82(5), pp. 803\u2013827. Available at: https://doi.org/10.1029/JB082i005p00803.",
+         ", 82(5), pp. 803\u2013827. Available at:",
+         0
+        ]
+       ],
+       [
+        [
+         "https://doi.org/10.1029/JB082i005p00803.",
          0
         ]
        ]
       ],
-      "y": 566.4
+      "y": 467.99999999999994
      },
      {
       "runs": [
@@ -16146,18 +16084,18 @@
          1
         ],
         [
-         ", 199(4897), pp. 947\u2013949.",
+         ", 199(4897), pp.",
          0
         ]
        ],
        [
         [
-         "Available at: https://doi.org/10.1038/199947a0.",
+         "947\u2013949. Available at: https://doi.org/10.1038/199947a0.",
          0
         ]
        ]
       ],
-      "y": 660.8
+      "y": 617.4
      }
     ],
     "fx": [
@@ -16169,9 +16107,9 @@
     ],
     "bbox": [
      120,
-     165,
+     175,
      1680,
-     737.5999999999999
+     703.8
     ]
    },
    {
