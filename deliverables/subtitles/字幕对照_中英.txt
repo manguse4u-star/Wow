@@ -1,0 +1,62 @@
+﻿Spreading Rates — 中文讲解与英文字幕对照
+
+【PPT 部分】
+PPT 第 1 页 · 自我介绍
+  中: 大家好，我是 Edwin，今天讲讲海底扩张速率。
+  EN: Hi, I'm Edwin. Today I'll explain seafloor spreading rates.
+PPT 第 2 页 · 定义
+  中: 单侧板块远离洋中脊的速度，叫半扩张速率；
+  EN: The half-spreading rate is how fast one plate moves away from the ridge.
+  中: 两块板块彼此分开的速度，叫全扩张速率，对称扩张时正好是半速率的两倍。
+  EN: The full rate is how fast the two plates separate: twice the half-rate if spreading is symmetric.
+PPT 第 3 页 · 测量
+  中: 怎么测？看磁条带。
+  EN: How do we measure it? With magnetic stripes.
+  中: 两侧条带对称分布，用距离除以年龄就是速率。
+  EN: The stripes are mirrored on both sides, and distance divided by age gives the rate.
+
+【出镜演示】（视频内秒数）
+1.2–2.5 s
+  中: 这个是洋中脊。
+  EN: This is the mid-ocean ridge.
+2.8–4.9 s
+  中: 两条纸带分别代表它两边的海底。
+  EN: The two paper strips are the seafloor on either side of it.
+5.1–8.1 s
+  中: 当两条纸带往外拉，新的纸从这里长出来，
+  EN: When I pull the strips outward, new paper comes out from here,
+8.3–10.9 s
+  中: 就像从洋中脊长出新的洋壳一样。
+  EN: just like new oceanic crust forming at the ridge.
+11.3–16.7 s
+  中: 当岩石冷却时，它会记录下当时地磁场的方向。
+  EN: As the rock cools, it records the direction of Earth's magnetic field at that time.
+17.4–18.2 s
+  中: 就像这样。
+  EN: Like this.
+18.4–22.5 s
+  中: 而两条纸带所记录下的地磁场方向是完全对称的。
+  EN: The magnetic patterns on the two strips are perfectly symmetric.
+23.2–28.7 s
+  中: 那么假设这条磁带离洋中脊有一百公里远，而它的年龄为五百万年，
+  EN: Now suppose this stripe is 100 km from the ridge and 5 million years old.
+29.1–31.8 s
+  中: 那么半扩张速率就是一百公里除以五百万年，
+  EN: Then the half-spreading rate is 100 km ÷ 5 million years,
+31.9–33.7 s
+  中: 也就是两厘米每年。
+  EN: which is 2 cm per year.
+
+【结尾动画】（动画内秒数）
+0.5–3.4 s
+  中: 在洋中脊，两侧板块分开，
+  EN: At mid-ocean ridges, the plates separate,
+3.4–6.2 s
+  中: 上涌的岩浆形成新的洋壳。
+  EN: and rising magma forms new oceanic crust.
+7.5–10.4 s
+  中: 新洋壳冷却时记录下地磁场，
+  EN: As the new crust cools, it records Earth's magnetic field,
+10.6–12.8 s
+  中: 于是形成和我的模型一样的对称条带。
+  EN: producing the same symmetric stripes as my model.
