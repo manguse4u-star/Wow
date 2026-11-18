@@ -1,0 +1,16 @@
+1
+00:00:00,500 --> 00:00:03,400
+At mid-ocean ridges, the plates separate,
+
+2
+00:00:03,400 --> 00:00:06,200
+and rising magma forms new oceanic crust.
+
+3
+00:00:07,500 --> 00:00:10,400
+As the new crust cools,
+it records Earth's magnetic field,
+
+4
+00:00:10,600 --> 00:00:12,800
+producing the same symmetric stripes as my model.
