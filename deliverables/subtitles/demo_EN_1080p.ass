@@ -1,0 +1,22 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Liberation Sans,44,&H00FFFFFF,&H00FFFFFF,&H64000000,&H64000000,1,0,0,0,100,100,0,0,3,8,0,2,115,115,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.20,0:00:01.50,Default,,0,0,0,,This is the mid-ocean ridge.
+Dialogue: 0,0:00:01.80,0:00:03.90,Default,,0,0,0,,The two paper strips are the seafloor on either side of it.
+Dialogue: 0,0:00:04.10,0:00:07.10,Default,,0,0,0,,When I pull the strips outward, new paper comes out from here,
+Dialogue: 0,0:00:07.30,0:00:09.90,Default,,0,0,0,,just like new oceanic crust forming at the ridge.
+Dialogue: 0,0:00:10.30,0:00:15.70,Default,,0,0,0,,As the rock cools, it records the direction of Earth's magnetic field at that time.
+Dialogue: 0,0:00:16.40,0:00:17.20,Default,,0,0,0,,Like this.
+Dialogue: 0,0:00:17.35,0:00:21.50,Default,,0,0,0,,The magnetic patterns on the two strips are perfectly symmetric.
+Dialogue: 0,0:00:22.25,0:00:27.70,Default,,0,0,0,,Now suppose this stripe is 100 km from the ridge and 5 million years old.
+Dialogue: 0,0:00:28.05,0:00:30.80,Default,,0,0,0,,Then the half-spreading rate is 100 km ÷ 5 million years,
+Dialogue: 0,0:00:30.90,0:00:32.70,Default,,0,0,0,,which is 2 cm per year.
