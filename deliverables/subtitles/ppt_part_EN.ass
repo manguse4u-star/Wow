@@ -1,0 +1,20 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Liberation Sans,44,&H00FFFFFF,&H00FFFFFF,&H64000000,&H64000000,1,0,0,0,100,100,0,0,3,8,0,2,160,160,36,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:02.00,0:00:05.05,Default,,0,0,0,,Hi, I'm Edwin, student number 25092450.
+Dialogue: 0,0:00:05.30,0:00:06.90,Default,,0,0,0,,Today I'll talk about seafloor spreading rates.
+Dialogue: 0,0:00:08.40,0:00:12.95,Default,,0,0,0,,The seafloor spreading rate usually means how fast the plates on either side of a mid-ocean ridge move apart.
+Dialogue: 0,0:00:13.85,0:00:16.40,Default,,0,0,0,,It can be split into the half-spreading rate and the full-spreading rate.
+Dialogue: 0,0:00:17.05,0:00:20.50,Default,,0,0,0,,With symmetric spreading, the full rate is exactly twice the half rate.
+Dialogue: 0,0:00:21.85,0:00:22.90,Default,,0,0,0,,So how do we measure it?
+Dialogue: 0,0:00:23.25,0:00:24.40,Default,,0,0,0,,The answer is magnetic stripes.
+Dialogue: 0,0:00:24.80,0:00:27.85,Default,,0,0,0,,The stripes are symmetric on both sides, and distance divided by age gives the rate.

@@ -1,0 +1,31 @@
+1
+00:00:02,000 --> 00:00:05,050
+Hi, I'm Edwin, student number 25092450.
+
+2
+00:00:05,300 --> 00:00:06,900
+Today I'll talk about seafloor spreading rates.
+
+3
+00:00:08,400 --> 00:00:12,950
+The seafloor spreading rate usually means how fast the plates on either side of a mid-ocean ridge move apart.
+
+4
+00:00:13,850 --> 00:00:16,400
+It can be split into the half-spreading rate and the full-spreading rate.
+
+5
+00:00:17,050 --> 00:00:20,500
+With symmetric spreading, the full rate is exactly twice the half rate.
+
+6
+00:00:21,850 --> 00:00:22,900
+So how do we measure it?
+
+7
+00:00:23,250 --> 00:00:24,400
+The answer is magnetic stripes.
+
+8
+00:00:24,800 --> 00:00:27,850
+The stripes are symmetric on both sides, and distance divided by age gives the rate.

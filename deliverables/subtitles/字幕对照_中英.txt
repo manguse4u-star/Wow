@@ -1,17 +1,31 @@
 ﻿Spreading Rates — 中文讲解与英文字幕对照
 顺序：PPT 第 1–2 页 → 出镜演示 → PPT 第 3 页动画 → 第 4 页参考文献
 
-【PPT 第 1–2 页】
-第 1 页 · 自我介绍
-  中: 大家好，我是 Edwin，今天讲讲海底扩张速率。
-  EN: Hi, I'm Edwin. Today I'll explain seafloor spreading rates.
-第 2 页 · 定义
-  中: 扩张速率是洋底离开洋中脊的速度。
-  EN: A spreading rate is how fast the seafloor moves away from a ridge.
-  中: 单侧板块相对洋脊的速度叫半扩张速率，
-  EN: One plate's speed relative to the ridge is the half-spreading rate;
-  中: 两块板块分开的速度叫全扩张速率，一般每年 2 到 15 厘米。
-  EN: the speed at which the two plates separate is the full rate, typically 2 to 15 cm per year.
+【PPT 部分录屏】（剪辑后视频内秒数，字幕已压入 PPT_Part_with_ZH/EN_subtitles.mp4）
+2.0–5.0 s
+  中: 大家好，我是 Edwin，学号 25092450。
+  EN: Hi, I'm Edwin, student number 25092450.
+5.3–6.9 s
+  中: 今天讲讲海底扩张速率。
+  EN: Today I'll talk about seafloor spreading rates.
+8.4–12.9 s
+  中: 海底扩张速率通常是指洋中脊两侧板块远离彼此的速度。
+  EN: The seafloor spreading rate usually means how fast the plates on either side of a mid-ocean ridge move apart.
+13.8–16.4 s
+  中: 由此可以分成半扩张速率和全扩张速率。
+  EN: It can be split into the half-spreading rate and the full-spreading rate.
+17.1–20.5 s
+  中: 对称扩张时，全扩张速率正好是半扩张速率的两倍。
+  EN: With symmetric spreading, the full rate is exactly twice the half rate.
+21.9–22.9 s
+  中: 那我们要怎么测它呢？
+  EN: So how do we measure it?
+23.2–24.4 s
+  中: 答案是看磁条带。
+  EN: The answer is magnetic stripes.
+24.8–27.9 s
+  中: 两侧磁条带对称分布，用距离除以年龄就是速率。
+  EN: The stripes are symmetric on both sides, and distance divided by age gives the rate.
 
 【出镜演示】（裁剪后视频内秒数，字幕已压入）
 0.2–1.5 s

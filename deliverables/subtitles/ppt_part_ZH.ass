@@ -1,0 +1,20 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,WenQuanYi Zen Hei,50,&H00FFFFFF,&H00FFFFFF,&H64000000,&H64000000,1,0,0,0,100,100,0,0,3,8,0,2,160,160,36,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:02.00,0:00:05.05,Default,,0,0,0,,大家好，我是 Edwin，学号 25092450。
+Dialogue: 0,0:00:05.30,0:00:06.90,Default,,0,0,0,,今天讲讲海底扩张速率。
+Dialogue: 0,0:00:08.40,0:00:12.95,Default,,0,0,0,,海底扩张速率通常是指洋中脊两侧板块远离彼此的速度。
+Dialogue: 0,0:00:13.85,0:00:16.40,Default,,0,0,0,,由此可以分成半扩张速率和全扩张速率。
+Dialogue: 0,0:00:17.05,0:00:20.50,Default,,0,0,0,,对称扩张时，全扩张速率正好是半扩张速率的两倍。
+Dialogue: 0,0:00:21.85,0:00:22.90,Default,,0,0,0,,那我们要怎么测它呢？
+Dialogue: 0,0:00:23.25,0:00:24.40,Default,,0,0,0,,答案是看磁条带。
+Dialogue: 0,0:00:24.80,0:00:27.85,Default,,0,0,0,,两侧磁条带对称分布，用距离除以年龄就是速率。
