@@ -1,63 +1,79 @@
 1
-00:00:00,400 --> 00:00:04,000
+00:00:00,850 --> 00:00:04,700
 Hi, I'm Edwin, student number 25092450.
 
 2
-00:00:04,400 --> 00:00:08,900
-The Atlantic widens by about 2–3 cm a year — about as fast as your fingernails grow.
+00:00:05,330 --> 00:00:08,260
+Did you know the Atlantic gets about 2 cm wider every year —
 
 3
-00:00:09,300 --> 00:00:12,000
-That's because the plates on either side of the mid-ocean ridge are moving apart.
+00:00:09,000 --> 00:00:10,870
+roughly as fast as your fingernails grow.
 
 4
-00:00:12,200 --> 00:00:17,000
-One side's speed is the half-spreading rate; both sides together give the full-spreading rate.
+00:00:11,640 --> 00:00:15,250
+That's because at the mid-ocean ridge, the plates on either side are moving apart.
 
 5
-00:00:17,500 --> 00:00:22,500
-But no one can watch a plate for millions of years — so how do we measure its speed?
+00:00:15,250 --> 00:00:17,200
+One side's speed is called the half-spreading rate,
 
 6
-00:00:22,900 --> 00:00:23,950
-This is the mid-ocean ridge.
+00:00:17,660 --> 00:00:19,530
+and both sides together give the full-spreading rate.
 
 7
-00:00:24,050 --> 00:00:26,150
-The two paper strips are the seafloor on either side of it.
+00:00:20,760 --> 00:00:21,830
+But plates move so slowly —
 
 8
-00:00:26,350 --> 00:00:29,350
-When I pull the strips outward, new paper comes out from here,
+00:00:22,290 --> 00:00:24,170
+so how do we know how fast they go?
 
 9
-00:00:29,550 --> 00:00:32,050
-just like new oceanic crust forming at the ridge.
+00:00:24,500 --> 00:00:25,550
+This is the mid-ocean ridge.
 
 10
-00:00:32,150 --> 00:00:36,350
-As the rock cools, it records the direction of Earth's magnetic field at that time.
+00:00:25,650 --> 00:00:27,750
+The two paper strips are the seafloor on either side of it.
 
 11
-00:00:36,400 --> 00:00:40,500
-The magnetic patterns on the two strips are perfectly symmetric.
+00:00:27,950 --> 00:00:30,950
+When I pull the strips outward, new paper comes out from here,
 
 12
-00:00:40,600 --> 00:00:45,550
-Now suppose this stripe is 100 km from the ridge and 5 million years old.
+00:00:31,150 --> 00:00:33,650
+just like new oceanic crust forming at the ridge.
 
 13
-00:00:45,600 --> 00:00:48,350
-Then the half-spreading rate is 100 km ÷ 5 million years,
+00:00:33,750 --> 00:00:37,950
+As the rock cools, it records the direction of Earth's magnetic field at that time.
 
 14
-00:00:48,450 --> 00:00:49,950
-which is 2 cm per year.
+00:00:38,000 --> 00:00:42,100
+The magnetic patterns on the two strips are perfectly symmetric.
 
 15
-00:00:50,150 --> 00:00:55,250
-So the seafloor works like a tape recorder, logging every flip of Earth's magnetic field.
+00:00:42,200 --> 00:00:47,150
+Now suppose this stripe is 100 km from the ridge and 5 million years old.
 
 16
-00:00:55,650 --> 00:01:00,250
-Read the stripes, and we can measure motion slower than your fingernails grow.
+00:00:47,200 --> 00:00:49,950
+Then the half-spreading rate is 100 km ÷ 5 million years,
+
+17
+00:00:50,050 --> 00:00:51,550
+which is 2 cm per year.
+
+18
+00:00:51,950 --> 00:00:53,700
+So the seafloor is like a magnetic tape,
+
+19
+00:00:54,170 --> 00:00:56,980
+recording every flip of Earth's magnetic field.
+
+20
+00:00:57,590 --> 00:01:00,830
+Read the stripes, and we can measure the seafloor spreading rate.

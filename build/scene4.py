@@ -20,18 +20,22 @@ from scene import (W, H, CX, poly, rect, ellipse, group, solid, grad, line, fade
 from scene2 import (T, textured, leader, label, tag, streaks, mantle_col, plate, BG, MUTED, CYAN, LIME, ORANGE,
                     background, cross_section)
 
-INTRO_LINES = [
-    (0.4, 4.0, "大家好，我是 Edwin，学号 25092450。", "Hi, I'm Edwin, student number 25092450."),
-    (4.4, 8.9, "大西洋每年会变宽两三厘米，跟指甲长得差不多快。", "The Atlantic widens by about 2–3 cm a year — about as fast as your fingernails grow."),
-    (9.3, 12.0, "因为洋中脊两侧的板块正在分开：", "That's because the plates on either side of the mid-ocean ridge are moving apart."),
-    (12.2, 17.0, "一侧的速度是半扩张速率，两侧加起来是全扩张速率。", "One side's speed is the half-spreading rate; both sides together give the full-spreading rate."),
-    (17.5, 22.5, "可没人能盯着板块看几百万年，那速度是怎么测出来的？", "But no one can watch a plate for millions of years — so how do we measure its speed?"),
+INTRO_LINES = [  # timed to the recorded narration (seconds from the start of the recording)
+    (0.85, 4.70, "大家好，我是 Edwin，学号 25092450。", "Hi, I'm Edwin, student number 25092450."),
+    (5.33, 8.26, "你知道吗？大西洋每年都会变宽大约两厘米，", "Did you know the Atlantic gets about 2 cm wider every year —"),
+    (9.00, 10.87, "差不多就是你指甲生长的速度。", "roughly as fast as your fingernails grow."),
+    (11.64, 15.25, "这是因为在洋中脊，两侧板块正在分开。", "That's because at the mid-ocean ridge, the plates on either side are moving apart."),
+    (15.25, 17.20, "一侧的速度叫半扩张速率，", "One side's speed is called the half-spreading rate,"),
+    (17.66, 19.53, "两侧加起来叫全扩张速率。", "and both sides together give the full-spreading rate."),
+    (20.76, 21.83, "可是板块动得这么慢——", "But plates move so slowly —"),
+    (22.29, 24.17, "那我们是怎么知道它的速度的？", "so how do we know how fast they go?"),
 ]
 CLOSING_LINES = [
-    (0.5, 5.6, "所以，海底就像一盘磁带，录下了地磁场的每一次翻转。", "So the seafloor works like a tape recorder, logging every flip of Earth's magnetic field."),
-    (6.0, 10.6, "读懂这些条带，就能测出比指甲生长还慢的速度。", "Read the stripes, and we can measure motion slower than your fingernails grow."),
+    (0.70, 2.45, "所以，海底就像一盘磁带，", "So the seafloor is like a magnetic tape,"),
+    (2.92, 5.73, "把地球磁场的每次翻转都记录下来。", "recording every flip of Earth's magnetic field."),
+    (6.34, 9.58, "读懂这些条带，我们就能测出海底扩张速率。", "Read the stripes, and we can measure the seafloor spreading rate."),
 ]
-INTRO_LEN, CLOSING_LEN, XF = 23.0, 13.7, 0.5
+INTRO_LEN, CLOSING_LEN, XF = 24.6, 13.7, 0.5
 
 
 # ------------------------------------------------------------------ Atlantic map (hook)
@@ -59,8 +63,8 @@ def slide_atlantic(dur):
     sh[-1]["fx"] = land_fx(1)
     sh.append(poly("Arrow W", arrow_pts(cx - 60, cy - 40, cx - 230, cy - 40, 12, 38, 34), fill=solid(CYAN), fx=[wipe_in(1.4, 0.6, "left")]))
     sh.append(poly("Arrow E", arrow_pts(cx + 60, cy - 40, cx + 230, cy - 40, 12, 38, 34), fill=solid(CYAN), fx=[wipe_in(1.4, 0.6, "right")]))
-    sh.append(label("Atlantic label", "Atlantic Ocean", "widening ≈ 2–3 cm per year", 1420, 300, fx=[fade_in(1.0, 0.5)]))
-    sh.append(label("Nail label", "≈ fingernail growth", "a few cm per year", 1420, 470, term_color=CYAN, fx=[fade_in(2.6, 0.5)]))
+    sh.append(label("Atlantic label", "Atlantic Ocean", "widening ≈ 2 cm per year", 1420, 300, fx=[fade_in(1.0, 0.5)]))
+    sh.append(label("Nail label", "≈ fingernail growth", "a few cm per year", 1420, 470, term_color=CYAN, fx=[fade_in(4.1, 0.5)]))
     sh.append(label("Ridge label", "Mid-Atlantic Ridge", "", 140, 840, term_color="FFC48A", fx=[fade_in(0.8, 0.5)]))
     sh.append(leader("Ridge leader", 470, 865, cx - 4, cy + 300 * sc - 30, color="FFC48A", fx=[fade_in(0.8, 0.5)]))
     sh.append(tag("Map · schematic, not to scale", fx=[fade_in(0.3, 0.5)]))
@@ -99,11 +103,11 @@ def slide_section(dur, rate_t=3.0):
     sh.append(label("Half label", "Half-spreading rate", "one plate, relative to the ridge", 150, 430, term_color=CYAN, fx=[fade_in(r, 0.5)]))
     sh.append(T("Half value L", "2 cm/yr", CX - 400, 548, 390, 50, 36, color=CYAN, weight=600, align="ctr", fx=[fade_in(r + 0.6, 0.4)]))
     sh.append(T("Half value R", "2 cm/yr", CX + 10, 548, 390, 50, 36, color=CYAN, weight=600, align="ctr", fx=[fade_in(r + 0.8, 0.4)]))
-    sh.append(poly("Full arrow", double_arrow_pts(xl, xr, 300, 12, 44, 40), fill=solid(LIME), fx=[split_out(r + 1.9, 0.7)]))
+    sh.append(poly("Full arrow", double_arrow_pts(xl, xr, 300, 12, 44, 40), fill=solid(LIME), fx=[split_out(r + 2.4, 0.7)]))
     sh.append(label("Full label", "Full-spreading rate", "separation of the two plates", CX, 160, align="ctr", term_color=LIME, w=800,
-                    fx=[fade_in(r + 2.0, 0.5)]))
-    sh.append(T("Full value", "4 cm/yr", CX - 200, 320, 400, 50, 36, color=LIME, weight=600, align="ctr", fx=[fade_in(r + 2.5, 0.4)]))
-    sh.append(T("Symmetric note", "symmetric example: 2 + 2 = 4", 1300, 40, 560, 44, 24, color="C9D1DB", align="r", fx=[fade_in(r + 2.8, 0.5)]))
+                    fx=[fade_in(r + 2.5, 0.5)]))
+    sh.append(T("Full value", "4 cm/yr", CX - 200, 320, 400, 50, 36, color=LIME, weight=600, align="ctr", fx=[fade_in(r + 3.0, 0.4)]))
+    sh.append(T("Symmetric note", "symmetric example: 2 + 2 = 4", 1300, 40, 560, 44, 24, color="C9D1DB", align="r", fx=[fade_in(r + 3.3, 0.5)]))
     return dict(name="Spreading rate", adv=dur, transition=0, shapes=sh)
 
 
@@ -161,15 +165,15 @@ def slide_tape(dur=11.0):
 
 
 def build():
-    slides = [V2.slide_title(), slide_atlantic(5.4), slide_section(9.1, rate_t=3.0), slide_question(6.0),
+    slides = [V2.slide_title(), slide_atlantic(6.5), slide_section(9.3, rate_t=4.3), slide_question(4.9),
               slide_tape(11.0), V2.slide_refs()]
     for s in slides:
         if s["name"] == "Title":
-            s["adv"] = 4.9
+            s["adv"] = 5.4
     seqs = {
         # title 0-4.9 | Atlantic 4.4-9.8 | section 9.3-18.4 | question 17.9-23.9 -> 23.0 total
-        "v8_intro": {"xf": XF, "segments": [{"slide": 0, "dur": 4.9}, {"slide": 1, "dur": 5.4}, {"slide": 2, "dur": 9.1},
-                                             {"slide": 3, "dur": 5.1}]},
+        "v8_intro": {"xf": XF, "segments": [{"slide": 0, "dur": 5.4}, {"slide": 1, "dur": 6.5}, {"slide": 2, "dur": 9.3},
+                                             {"slide": 3, "dur": 4.9}]},
         "v8_closing": {"xf": XF, "segments": [{"slide": 4, "dur": 11.0}, {"slide": 5, "dur": 3.2}]},
     }
     return dict(W=W, H=H, fps=30, total=0, font="Inter", font_css=V2.FONT_CSS, slides=slides, sequences=seqs)
