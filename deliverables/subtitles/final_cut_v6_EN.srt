@@ -1,0 +1,59 @@
+1
+00:00:01,100 --> 00:00:04,150
+Hi, I'm Edwin, student number 25092450.
+
+2
+00:00:04,400 --> 00:00:06,000
+Today I'll talk about seafloor spreading rates.
+
+3
+00:00:07,500 --> 00:00:12,050
+The seafloor spreading rate usually means how fast the plates on either side of a mid-ocean ridge move apart.
+
+4
+00:00:12,150 --> 00:00:14,700
+It can be split into the half-spreading rate and the full-spreading rate.
+
+5
+00:00:14,800 --> 00:00:18,250
+With symmetric spreading, the full rate is exactly twice the half rate.
+
+6
+00:00:19,200 --> 00:00:20,300
+So how do we measure it?
+
+7
+00:00:20,450 --> 00:00:21,500
+This is the mid-ocean ridge.
+
+8
+00:00:21,600 --> 00:00:23,700
+The two paper strips are the seafloor on either side of it.
+
+9
+00:00:23,900 --> 00:00:26,900
+When I pull the strips outward, new paper comes out from here,
+
+10
+00:00:27,100 --> 00:00:29,600
+just like new oceanic crust forming at the ridge.
+
+11
+00:00:29,700 --> 00:00:33,900
+As the rock cools, it records the direction of Earth's magnetic field at that time.
+
+12
+00:00:33,950 --> 00:00:38,050
+The magnetic patterns on the two strips are perfectly symmetric.
+
+13
+00:00:38,150 --> 00:00:43,100
+Now suppose this stripe is 100 km from the ridge and 5 million years old.
+
+14
+00:00:43,150 --> 00:00:45,900
+Then the half-spreading rate is 100 km ÷ 5 million years,
+
+15
+00:00:46,000 --> 00:00:47,500
+which is 2 cm per year.

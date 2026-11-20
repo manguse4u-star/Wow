@@ -9,7 +9,7 @@ const path = require('path');
 const { spawn } = require('child_process');
 const { chromium } = require('playwright');
 
-const scene = JSON.parse(fs.readFileSync(path.join(__dirname, 'scene.json'), 'utf8'));
+const scene = JSON.parse(fs.readFileSync(process.env.SCENE_JSON || path.join(__dirname, 'scene.json'), 'utf8'));
 const OUT = path.resolve(process.argv[2] || path.join(__dirname, '..', 'deliverables'));
 const MODE = process.argv[3] || 'all';
 
@@ -75,12 +75,21 @@ function pageCode() {
   }
 
   function drawShape(sh, defs) {
-    if (sh.kind === 'group') return sh.children.map((c) => drawShape(c, defs)).join('');
+    if (sh.kind === 'group') {
+      const inner = sh.children.map((c) => drawShape(c, defs)).join('');
+      if (!sh.clip) return inner;
+      const id = 'k' + uid++;
+      defs.push(`<clipPath id="${id}"><path d="M${sh.clip.map((p) => p.join(' ')).join(' L')} Z"/></clipPath>`);
+      return `<g clip-path="url(#${id})">${inner}</g>`;
+    }
     if (sh.kind === 'text') {
       const x = sh.align === 'ctr' ? sh.x + sh.w / 2 : sh.align === 'l' ? sh.x : sh.x + sh.w;
       const anchor = sh.align === 'ctr' ? 'middle' : sh.align === 'l' ? 'start' : 'end';
-      return `<text x="${x}" y="${sh.y + sh.h / 2}" font-family="Arial, 'Liberation Sans', sans-serif" font-size="${sh.size * 2}" ` +
-        `font-weight="${sh.bold ? 700 : 400}" fill="#${sh.color}" text-anchor="${anchor}" dominant-baseline="central">${esc(sh.text)}</text>`;
+      const ff = window.SCENE.font_css || "Arial, 'Liberation Sans', sans-serif";
+      const ls = sh.ls ? ` letter-spacing="${sh.ls}"` : '';
+      const op = sh.a !== undefined && sh.a < 1 ? ` fill-opacity="${sh.a}"` : '';
+      return `<text x="${x}" y="${sh.y + sh.h / 2}" font-family="${ff}" font-size="${sh.size * 2}"${ls}${op} ` +
+        `font-weight="${sh.weight || (sh.bold ? 700 : 400)}" fill="#${sh.color}" text-anchor="${anchor}" dominant-baseline="central">${esc(sh.text)}</text>`;
     }
     if (sh.kind === 'rich') {
       const px = sh.size * 2, lh = px * sh.line;
@@ -88,8 +97,9 @@ function pageCode() {
       for (const para of sh.paras) {
         para.lines.forEach((ln, i) => {
           const y = sh.y + para.y + lh * (i + 0.5);
-          o += `<text x="${sh.x}" y="${y}" font-family="Arial, 'Liberation Sans', sans-serif" font-size="${px}" fill="#${sh.color}" dominant-baseline="central" xml:space="preserve">` +
-            ln.map(([t, it]) => `<tspan${it ? ' font-style="italic"' : ''}>${esc(t)}</tspan>`).join('') + '</text>';
+          const ff = window.SCENE.font_css || "Arial, 'Liberation Sans', sans-serif";
+          o += `<text x="${sh.x}" y="${y}" font-family="${ff}" font-size="${px}" fill="#${sh.color}" dominant-baseline="central" xml:space="preserve">` +
+            ln.map(([t, it, col]) => `<tspan${it ? ' font-style="italic"' : ''}${col ? ` fill="#${col}"` : ''}>${esc(t)}</tspan>`).join('') + '</text>';
         });
       }
       return o;
@@ -266,6 +276,39 @@ async function main() {
     await page2.evaluate((s) => window.show(s), svg0);
     await page2.screenshot({ path: path.join(OUT, 'video', 'clip_poster.png') });
     fs.writeFileSync(path.join(__dirname, 'clip.json'), JSON.stringify(scene.clip));
+  }
+
+  // Generic sequence: scene.sequences[name] = {xf, segments:[{slide, dur}]}
+  if (MODE === '--seq') {
+    const name = process.argv[4];
+    const sq = scene.sequences[name];
+    const page = await mk(1);
+    const total = sq.segments.reduce((a, s) => a + s.dur, 0) - sq.xf * (sq.segments.length - 1);
+    const n = Math.round(total * scene.fps);
+    fs.mkdirSync(path.join(OUT, 'video'), { recursive: true });
+    const fn = new Function('c', `
+      const SQ = ${JSON.stringify(sq)}, S = window.SCENE.slides;
+      const mix = (a, b, p) => a.replace('</svg>', '').concat('<g opacity="' + p.toFixed(4) + '">' +
+        b.replace(/^<svg[^>]*>/, '').replace('</svg>', '') + '</g></svg>');
+      let start = 0;
+      for (let i = 0; i < SQ.segments.length; i++) {
+        const sg = SQ.segments[i], end = start + sg.dur;
+        const nx = SQ.segments[i + 1];
+        if (c < end - (nx ? SQ.xf : 0) || !nx) return window.svgAt(0, sg.slide, Math.min(c - start, sg.dur));
+        if (c < end) {
+          const p = (c - (end - SQ.xf)) / SQ.xf;
+          return mix(window.svgAt(0, sg.slide, c - start), window.svgAt(0, nx.slide, c - (end - SQ.xf)), p);
+        }
+        start = end - SQ.xf;
+      }`);
+    await encode(page, n, fn, path.join(OUT, 'video', name + '.mp4'));
+    const page2 = await mk(2);
+    fs.mkdirSync(path.join(OUT, 'stills_v2'), { recursive: true });
+    for (const [i, sg] of sq.segments.entries()) {
+      const svg = await page2.evaluate(([k, t]) => window.svgAt(0, k, t), [sg.slide, sg.dur]);
+      await page2.evaluate((s) => window.show(s), svg);
+      await page2.screenshot({ path: path.join(OUT, 'stills_v2', `${name}_${i + 1}_${S[sg.slide].name.replace(/[^A-Za-z0-9]+/g, '_')}.png`) });
+    }
   }
 
   if (MODE === 'all' || MODE === '--frames-only') {

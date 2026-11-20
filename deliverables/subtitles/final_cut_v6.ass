@@ -1,0 +1,50 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Inter,42,&H00FFFFFF,&H00FFFFFF,&H64000000,&H96000000,0,0,0,0,100,100,0,0,1,1.2,2.5,2,140,140,42,1
+Style: Anno,Inter,38,&H00FFFFFF,&H00FFFFFF,&H30000000,&H64000000,1,0,0,0,100,100,0,0,1,1.6,3,5,0,0,0,1
+Style: Line,Inter,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,0,0,0,0,100,100,0,0,1,0,1.5,7,0,0,0,1
+Style: Glow,Inter,20,&H004AC1FF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: Eq,Inter,54,&H00FFFFFF,&H00FFFFFF,&H5A1A0F0A,&H5A1A0F0A,1,0,0,0,100,100,0,0,3,16,0,8,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:01.10,0:00:04.15,Sub,,0,0,0,,Hi, I'm Edwin, student number 25092450.
+Dialogue: 0,0:00:04.40,0:00:06.00,Sub,,0,0,0,,Today I'll talk about seafloor spreading rates.
+Dialogue: 0,0:00:07.50,0:00:12.05,Sub,,0,0,0,,The seafloor spreading rate usually means how fast the plates on either side of a mid-ocean ridge move apart.
+Dialogue: 0,0:00:12.15,0:00:14.70,Sub,,0,0,0,,It can be split into the half-spreading rate and the full-spreading rate.
+Dialogue: 0,0:00:14.80,0:00:18.25,Sub,,0,0,0,,With symmetric spreading, the full rate is exactly twice the half rate.
+Dialogue: 0,0:00:19.20,0:00:20.30,Sub,,0,0,0,,So how do we measure it?
+Dialogue: 0,0:00:20.45,0:00:21.50,Sub,,0,0,0,,This is the mid-ocean ridge.
+Dialogue: 0,0:00:21.60,0:00:23.70,Sub,,0,0,0,,The two paper strips are the seafloor on either side of it.
+Dialogue: 0,0:00:21.60,0:00:25.10,Anno,,0,0,0,,{\an6\pos(560,640)\fad(220,220)}Mid-ocean ridge\N{\fs28\b0\c&HF0E8E0&}cardboard
+Dialogue: 0,0:00:21.70,0:00:23.80,Anno,,0,0,0,,{\an4\pos(1290,560)\fad(220,220)}Seafloor\N{\fs28\b0\c&HF0E8E0&}paper strips
+Dialogue: 0,0:00:21.72,0:00:25.10,Line,,0,0,0,,{\an7\pos(0,0)\fad(260,220)\p1}m 569 641 l 934 811 935 808 570 638{\p0}
+Dialogue: 0,0:00:21.72,0:00:25.10,Line,,0,0,0,,{\an7\pos(934,810)\fad(260,220)\p1}m 0 -7 b 4 -7 7 -4 7 0 b 7 4 4 7 0 7 b -4 7 -7 4 -7 0 b -7 -4 -4 -7 0 -7{\p0}
+Dialogue: 0,0:00:21.82,0:00:23.80,Line,,0,0,0,,{\an7\pos(0,0)\fad(260,220)\p1}m 1278 559 l 1161 724 1163 726 1281 560{\p0}
+Dialogue: 0,0:00:21.82,0:00:23.80,Line,,0,0,0,,{\an7\pos(1162,725)\fad(260,220)\p1}m 0 -7 b 4 -7 7 -4 7 0 b 7 4 4 7 0 7 b -4 7 -7 4 -7 0 b -7 -4 -4 -7 0 -7{\p0}
+Dialogue: 0,0:00:23.90,0:00:26.90,Sub,,0,0,0,,When I pull the strips outward, new paper comes out from here,
+Dialogue: 0,0:00:25.40,0:00:29.60,Anno,,0,0,0,,{\an4\pos(1290,600)\fad(220,220)}New crust\N{\fs28\b0\c&HF0E8E0&}forms at the ridge
+Dialogue: 0,0:00:25.40,0:00:29.60,Glow,,0,0,0,,{\an7\pos(970,763)\blur14\alpha&H50&\fad(250,250)\t(0,500,\alpha&HB0&)\t(500,1000,\alpha&H50&)\t(1000,1500,\alpha&HB0&)\t(1500,2000,\alpha&H50&)\t(2000,2500,\alpha&HB0&)\t(2500,3000,\alpha&H50&)\t(3000,3500,\alpha&HB0&)\t(3500,4000,\alpha&H50&)\t(4000,4500,\alpha&HB0&)\t(4500,5000,\alpha&H50&)\p1}m 0 -46 b 25 -46 46 -25 46 0 b 46 25 25 46 0 46 b -25 46 -46 25 -46 0 b -46 -25 -25 -46 0 -46{\p0}
+Dialogue: 0,0:00:25.52,0:00:29.60,Line,,0,0,0,,{\an7\pos(0,0)\fad(260,220)\p1}m 1279 598 l 997 745 998 748 1280 601{\p0}
+Dialogue: 0,0:00:25.52,0:00:29.60,Line,,0,0,0,,{\an7\pos(997,746)\fad(260,220)\p1}m 0 -7 b 4 -7 7 -4 7 0 b 7 4 4 7 0 7 b -4 7 -7 4 -7 0 b -7 -4 -4 -7 0 -7{\p0}
+Dialogue: 0,0:00:27.10,0:00:29.60,Sub,,0,0,0,,just like new oceanic crust forming at the ridge.
+Dialogue: 0,0:00:29.70,0:00:33.90,Sub,,0,0,0,,As the rock cools, it records the direction of Earth's magnetic field at that time.
+Dialogue: 0,0:00:31.40,0:00:33.90,Anno,,0,0,0,,{\an4\pos(1290,470)\fad(220,220)}Magnetic stripes\N{\fs28\b0\c&HF0E8E0&}record the field's polarity
+Dialogue: 0,0:00:31.52,0:00:33.90,Line,,0,0,0,,{\an7\pos(0,0)\fad(260,220)\p1}m 1279 468 l 1127 589 1129 591 1280 471{\p0}
+Dialogue: 0,0:00:31.52,0:00:33.90,Line,,0,0,0,,{\an7\pos(1128,590)\fad(260,220)\p1}m 0 -7 b 4 -7 7 -4 7 0 b 7 4 4 7 0 7 b -4 7 -7 4 -7 0 b -7 -4 -4 -7 0 -7{\p0}
+Dialogue: 0,0:00:33.95,0:00:38.05,Sub,,0,0,0,,The magnetic patterns on the two strips are perfectly symmetric.
+Dialogue: 0,0:00:34.80,0:00:38.05,Anno,,0,0,0,,{\an6\pos(590,565)\fad(220,220)}Mirror image\N{\fs28\b0\c&HF0E8E0&}same pattern on both sides
+Dialogue: 0,0:00:34.92,0:00:38.05,Line,,0,0,0,,{\an7\pos(0,0)\fad(260,220)\p1}m 599 579 l 756 663 758 661 600 576{\p0}
+Dialogue: 0,0:00:34.92,0:00:38.05,Line,,0,0,0,,{\an7\pos(0,0)\fad(260,220)\p1}m 600 553 l 732 507 731 504 599 550{\p0}
+Dialogue: 0,0:00:34.92,0:00:38.05,Line,,0,0,0,,{\an7\pos(732,506)\fad(260,220)\p1}m 0 -7 b 4 -7 7 -4 7 0 b 7 4 4 7 0 7 b -4 7 -7 4 -7 0 b -7 -4 -4 -7 0 -7{\p0}
+Dialogue: 0,0:00:34.92,0:00:38.05,Line,,0,0,0,,{\an7\pos(757,662)\fad(260,220)\p1}m 0 -7 b 4 -7 7 -4 7 0 b 7 4 4 7 0 7 b -4 7 -7 4 -7 0 b -7 -4 -4 -7 0 -7{\p0}
+Dialogue: 0,0:00:38.15,0:00:43.10,Sub,,0,0,0,,Now suppose this stripe is 100 km from the ridge and 5 million years old.
+Dialogue: 0,0:00:43.15,0:00:45.90,Sub,,0,0,0,,Then the half-spreading rate is 100 km ÷ 5 million years,
+Dialogue: 0,0:00:43.15,0:00:47.50,Eq,,0,0,0,,{\an8\pos(960,64)\fad(250,0)}100 km ÷ 5 Myr = 2 cm/yr
+Dialogue: 0,0:00:46.00,0:00:47.50,Sub,,0,0,0,,which is 2 cm per year.

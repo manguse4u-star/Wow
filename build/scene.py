@@ -96,7 +96,8 @@ def rich(name, paras, x, y, w, size, color=None, line=1.2, gap=0.55, fx=None):
     out, yy = [], 0.0
     for runs in paras:
         words = []
-        for t, it in runs:
+        for run in runs:
+            t, it = run[0], (run[1], run[2] if len(run) > 2 else None)
             for i, tok in enumerate(t.split(" ")):
                 if i > 0:
                     words.append((" ", it))
@@ -104,10 +105,10 @@ def rich(name, paras, x, y, w, size, color=None, line=1.2, gap=0.55, fx=None):
                     words.append((tok, it))
         lines, cur, cw = [], [], 0.0
         for tok, it in words:
-            tw = _font(False, it, px).getlength(tok)
+            tw = _font(False, it[0], px).getlength(tok)
             if tok != " " and cur and cw + tw > w * 0.985:
                 while cur and cur[-1][0] == " ":
-                    cw -= _font(False, cur[-1][1], px).getlength(" "); cur.pop()
+                    cw -= _font(False, cur[-1][1][0], px).getlength(" "); cur.pop()
                 lines.append(cur); cur, cw = [], 0.0
             if tok == " " and not cur:
                 continue
@@ -122,8 +123,8 @@ def rich(name, paras, x, y, w, size, color=None, line=1.2, gap=0.55, fx=None):
                     m[-1][0] += tok
                 else:
                     m.append([tok, it])
-            merged.append(m)
-        out.append({"runs": [[t, it] for t, it in runs], "lines": merged, "y": yy})
+            merged.append([[tok, st[0], st[1]] if st[1] else [tok, st[0]] for tok, st in m])
+        out.append({"runs": [list(r) for r in runs], "lines": merged, "y": yy})
         yy += lh * len(merged) + px * gap
     h = yy - px * gap
     return dict(kind="rich", name=name, x=x, y=y, w=w, h=h, size=size, line=line, gap=gap,
