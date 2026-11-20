@@ -1,0 +1,26 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Now,WenQuanYi Zen Hei,58,&H0000E1FF,&H00FFFFFF,&H00000000,&HB4000000,1,0,0,0,100,100,0,0,3,14,0,8,120,120,90,1
+Style: Next,WenQuanYi Zen Hei,46,&H00B0B0B0,&H00FFFFFF,&H00000000,&HB4000000,0,0,0,0,100,100,0,0,3,12,0,8,120,120,90,1
+Style: Sub,Inter,40,&H00FFFFFF,&H00FFFFFF,&H64000000,&H96000000,0,0,0,0,100,100,0,0,1,1.2,2.5,2,140,140,42,1
+Style: Count,Inter,260,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
+Style: Hint,WenQuanYi Zen Hei,40,&H00B0B0B0,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,2,0,0,120,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,Count,,0,0,0,,3
+Dialogue: 0,0:00:01.00,0:00:02.00,Count,,0,0,0,,2
+Dialogue: 0,0:00:02.00,0:00:03.00,Count,,0,0,0,,1
+Dialogue: 0,0:00:00.00,0:00:03.00,Hint,,0,0,0,,先开始录音，看着倒数；动画出现、黄字亮起时开口
+Dialogue: 0,0:00:03.00,0:00:03.50,Next,,0,0,0,,下一句：所以，海底就像一盘磁带，录下了地磁场的每一次翻转。
+Dialogue: 0,0:00:03.50,0:00:08.60,Now,,0,0,0,,所以，海底就像一盘磁带，录下了地磁场的每一次翻转。
+Dialogue: 0,0:00:03.50,0:00:08.60,Sub,,0,0,0,,So the seafloor works like a tape recorder, logging every flip of Earth's magnetic field.
+Dialogue: 0,0:00:08.20,0:00:09.00,Next,,0,0,0,,下一句：读懂这些条带，就能测出比指甲生长还慢的速度。
+Dialogue: 0,0:00:09.00,0:00:13.60,Now,,0,0,0,,读懂这些条带，就能测出比指甲生长还慢的速度。
+Dialogue: 0,0:00:09.00,0:00:13.60,Sub,,0,0,0,,Read the stripes, and we can measure motion slower than your fingernails grow.

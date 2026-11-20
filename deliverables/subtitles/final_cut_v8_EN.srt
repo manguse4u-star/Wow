@@ -1,0 +1,63 @@
+1
+00:00:00,400 --> 00:00:04,000
+Hi, I'm Edwin, student number 25092450.
+
+2
+00:00:04,400 --> 00:00:08,900
+The Atlantic widens by about 2–3 cm a year — about as fast as your fingernails grow.
+
+3
+00:00:09,300 --> 00:00:12,000
+That's because the plates on either side of the mid-ocean ridge are moving apart.
+
+4
+00:00:12,200 --> 00:00:17,000
+One side's speed is the half-spreading rate; both sides together give the full-spreading rate.
+
+5
+00:00:17,500 --> 00:00:22,500
+But no one can watch a plate for millions of years — so how do we measure its speed?
+
+6
+00:00:22,900 --> 00:00:23,950
+This is the mid-ocean ridge.
+
+7
+00:00:24,050 --> 00:00:26,150
+The two paper strips are the seafloor on either side of it.
+
+8
+00:00:26,350 --> 00:00:29,350
+When I pull the strips outward, new paper comes out from here,
+
+9
+00:00:29,550 --> 00:00:32,050
+just like new oceanic crust forming at the ridge.
+
+10
+00:00:32,150 --> 00:00:36,350
+As the rock cools, it records the direction of Earth's magnetic field at that time.
+
+11
+00:00:36,400 --> 00:00:40,500
+The magnetic patterns on the two strips are perfectly symmetric.
+
+12
+00:00:40,600 --> 00:00:45,550
+Now suppose this stripe is 100 km from the ridge and 5 million years old.
+
+13
+00:00:45,600 --> 00:00:48,350
+Then the half-spreading rate is 100 km ÷ 5 million years,
+
+14
+00:00:48,450 --> 00:00:49,950
+which is 2 cm per year.
+
+15
+00:00:50,150 --> 00:00:55,250
+So the seafloor works like a tape recorder, logging every flip of Earth's magnetic field.
+
+16
+00:00:55,650 --> 00:01:00,250
+Read the stripes, and we can measure motion slower than your fingernails grow.

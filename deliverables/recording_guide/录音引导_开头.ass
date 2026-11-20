@@ -1,0 +1,35 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Now,WenQuanYi Zen Hei,58,&H0000E1FF,&H00FFFFFF,&H00000000,&HB4000000,1,0,0,0,100,100,0,0,3,14,0,8,120,120,90,1
+Style: Next,WenQuanYi Zen Hei,46,&H00B0B0B0,&H00FFFFFF,&H00000000,&HB4000000,0,0,0,0,100,100,0,0,3,12,0,8,120,120,90,1
+Style: Sub,Inter,40,&H00FFFFFF,&H00FFFFFF,&H64000000,&H96000000,0,0,0,0,100,100,0,0,1,1.2,2.5,2,140,140,42,1
+Style: Count,Inter,260,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
+Style: Hint,WenQuanYi Zen Hei,40,&H00B0B0B0,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,2,0,0,120,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,Count,,0,0,0,,3
+Dialogue: 0,0:00:01.00,0:00:02.00,Count,,0,0,0,,2
+Dialogue: 0,0:00:02.00,0:00:03.00,Count,,0,0,0,,1
+Dialogue: 0,0:00:00.00,0:00:03.00,Hint,,0,0,0,,先开始录音，看着倒数；动画出现、黄字亮起时开口
+Dialogue: 0,0:00:03.00,0:00:03.40,Next,,0,0,0,,下一句：大家好，我是 Edwin，学号 25092450。
+Dialogue: 0,0:00:03.40,0:00:07.00,Now,,0,0,0,,大家好，我是 Edwin，学号 25092450。
+Dialogue: 0,0:00:03.40,0:00:07.00,Sub,,0,0,0,,Hi, I'm Edwin, student number 25092450.
+Dialogue: 0,0:00:06.60,0:00:07.40,Next,,0,0,0,,下一句：大西洋每年会变宽两三厘米，跟指甲长得差不多快。
+Dialogue: 0,0:00:07.40,0:00:11.90,Now,,0,0,0,,大西洋每年会变宽两三厘米，跟指甲长得差不多快。
+Dialogue: 0,0:00:07.40,0:00:11.90,Sub,,0,0,0,,The Atlantic widens by about 2–3 cm a year — about as fast as your fingernails grow.
+Dialogue: 0,0:00:11.50,0:00:12.30,Next,,0,0,0,,下一句：因为洋中脊两侧的板块正在分开：
+Dialogue: 0,0:00:12.30,0:00:15.00,Now,,0,0,0,,因为洋中脊两侧的板块正在分开：
+Dialogue: 0,0:00:12.30,0:00:15.00,Sub,,0,0,0,,That's because the plates on either side of the mid-ocean ridge are moving apart.
+Dialogue: 0,0:00:14.40,0:00:15.20,Next,,0,0,0,,下一句：一侧的速度是半扩张速率，两侧加起来是全扩张速率。
+Dialogue: 0,0:00:15.20,0:00:20.00,Now,,0,0,0,,一侧的速度是半扩张速率，两侧加起来是全扩张速率。
+Dialogue: 0,0:00:15.20,0:00:20.00,Sub,,0,0,0,,One side's speed is the half-spreading rate; both sides together give the full-spreading rate.
+Dialogue: 0,0:00:19.70,0:00:20.50,Next,,0,0,0,,下一句：可没人能盯着板块看几百万年，那速度是怎么测出来的？
+Dialogue: 0,0:00:20.50,0:00:25.50,Now,,0,0,0,,可没人能盯着板块看几百万年，那速度是怎么测出来的？
+Dialogue: 0,0:00:20.50,0:00:25.50,Sub,,0,0,0,,But no one can watch a plate for millions of years — so how do we measure its speed?
