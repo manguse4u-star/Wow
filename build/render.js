@@ -29,18 +29,20 @@ function pageCode() {
   const rgba = (hex, a) => `#${hex}` + (a < 0.999 ? Math.round(a * 255).toString(16).padStart(2, '0') : '');
 
   function state(sh, t) {
-    const st = { vis: true, op: 1, dx: 0, dy: 0, clip: null };
+    const st = { vis: true, op: 1, dx: 0, dy: 0, clip: null, k: 1, zx: 0, zy: 0 };
     const fx = sh.fx || [];
     const firstEntr = fx.filter((e) => ['fade_in', 'wipe_in', 'split_out'].includes(e.type))
       .sort((a, b) => a.s - b.s)[0];
     if (firstEntr && t < firstEntr.s) st.vis = false;
     const [bx, by, bw, bh] = sh.bbox;
+    for (const e of fx) if (e.type === 'zoom' && t < e.s && st.k === 1) { st.k = e.from; st.zx = e.cx; st.zy = e.cy; }
     for (const e of fx) {
       if (t < e.s) continue;
       const p = clamp((t - e.s) / e.d);
       if (e.type === 'fade_in') st.op *= p;
       else if (e.type === 'fade_out') { if (p >= 1) st.vis = false; st.op *= 1 - p; }
       else if (e.type === 'move') { const q = ease(p, e.accel || 0, e.decel || 0); st.dx += e.dx * q; st.dy += e.dy * q; }
+      else if (e.type === 'zoom') { const q = ease(p, e.accel || 0, e.decel || 0); st.k = e.from + (e.to - e.from) * q; st.zx = e.cx; st.zy = e.cy; }
       else if (e.type === 'split_out') st.clip = [bx + bw / 2 - (bw / 2) * p - 1, by - 50, bw * p + 2, bh + 100];
       else if (e.type === 'wipe_in') {
         const m = 60; // generous margin so glows are not cut off once fully revealed
@@ -58,6 +60,11 @@ function pageCode() {
     if (!f) return 'none';
     if (f.type === 'solid') return rgba(f.color, f.a);
     const id = 'g' + uid++;
+    if (f.type === 'rgrad') {
+      defs.push(`<radialGradient id="${id}" cx="${f.cx}" cy="${f.cy}" r="${f.r}" fx="${f.fx ?? f.cx}" fy="${f.fy ?? f.cy}">` +
+        f.stops.map(([p, col, a]) => `<stop offset="${p}" stop-color="#${col}" stop-opacity="${a}"/>`).join('') + '</radialGradient>');
+      return `url(#${id})`;
+    }
     const r = (f.angle * Math.PI) / 180, c = Math.cos(r), s = Math.sin(r);
     defs.push(`<linearGradient id="${id}" x1="${0.5 - c / 2}" y1="${0.5 - s / 2}" x2="${0.5 + c / 2}" y2="${0.5 + s / 2}">` +
       f.stops.map(([p, col, a]) => `<stop offset="${p}" stop-color="#${col}" stop-opacity="${a}"/>`).join('') + '</linearGradient>');
@@ -88,8 +95,15 @@ function pageCode() {
       const ff = window.SCENE.font_css || "Arial, 'Liberation Sans', sans-serif";
       const ls = sh.ls ? ` letter-spacing="${sh.ls}"` : '';
       const op = sh.a !== undefined && sh.a < 1 ? ` fill-opacity="${sh.a}"` : '';
+      let deco = '';
+      if (sh.stroke) deco += ` stroke="#${sh.stroke.color}" stroke-width="${sh.stroke.w}" stroke-linejoin="round" paint-order="stroke"`;
+      if (sh.shadow) {
+        const fid = 'f' + uid++;
+        defs.push(`<filter id="${fid}" x="-20%" y="-50%" width="140%" height="200%"><feDropShadow dx="0" dy="${sh.shadow.dy}" stdDeviation="${sh.shadow.blur}" flood-color="#000" flood-opacity="${sh.shadow.a}"/></filter>`);
+        deco += ` filter="url(#${fid})"`;
+      }
       return `<text x="${x}" y="${sh.y + sh.h / 2}" font-family="${ff}" font-size="${sh.size * 2}"${ls}${op} ` +
-        `font-weight="${sh.weight || (sh.bold ? 700 : 400)}" fill="#${sh.color}" text-anchor="${anchor}" dominant-baseline="central">${esc(sh.text)}</text>`;
+        `font-weight="${sh.weight || (sh.bold ? 700 : 400)}" fill="#${sh.color}" text-anchor="${anchor}" dominant-baseline="central"${deco}>${esc(sh.text)}</text>`;
     }
     if (sh.kind === 'rich') {
       const px = sh.size * 2, lh = px * sh.line;
@@ -139,7 +153,8 @@ function pageCode() {
         defs.push(`<clipPath id="${id}"><rect x="${x}" y="${y}" width="${Math.max(0, w)}" height="${Math.max(0, h)}"/></clipPath>`);
         inner = `<g clip-path="url(#${id})">${inner}</g>`;
       }
-      out += `<g transform="translate(${st.dx.toFixed(3)} ${st.dy.toFixed(3)})" opacity="${st.op.toFixed(4)}">${inner}</g>`;
+      const zt = st.k !== 1 ? ` translate(${st.zx} ${st.zy}) scale(${st.k.toFixed(5)}) translate(${-st.zx} ${-st.zy})` : '';
+      out += `<g transform="${zt} translate(${st.dx.toFixed(3)} ${st.dy.toFixed(3)})" opacity="${st.op.toFixed(4)}">${inner}</g>`;
     }
     return out;
   }
