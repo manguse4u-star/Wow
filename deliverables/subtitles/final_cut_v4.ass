@@ -9,6 +9,9 @@ Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour,
 Style: Sub,Liberation Sans,44,&H00FFFFFF,&H00FFFFFF,&H64000000,&H64000000,1,0,0,0,100,100,0,0,3,8,0,2,115,115,40,1
 Style: Label,Liberation Sans,34,&H00F0E6DC,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
 Style: Credit,Liberation Sans,22,&H00C8B39F,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,9,0,0,0,1
+Style: Anno,Liberation Sans,38,&H00FFFFFF,&H00FFFFFF,&H402A1A0A,&H802A1A0A,1,0,0,0,100,100,0,0,3,12,0,5,0,0,0,1
+Style: Arrow,Liberation Sans,20,&H00D6E62E,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: Glow,Liberation Sans,20,&H004AC1FF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
 Style: Eq,Liberation Sans,60,&H00FFFFFF,&H00FFFFFF,&H82000000,&H82000000,1,0,0,0,100,100,0,0,3,18,0,8,0,0,0,1
 
 [Events]
@@ -24,10 +27,22 @@ Dialogue: 0,0:00:18.75,0:00:20.55,Credit,,0,0,0,,{\an9\pos(1835,768)}{\fad(250,0
 Dialogue: 0,0:00:19.20,0:00:20.30,Sub,,0,0,0,,So how do we measure it?
 Dialogue: 0,0:00:20.45,0:00:21.50,Sub,,0,0,0,,This is the mid-ocean ridge.
 Dialogue: 0,0:00:21.60,0:00:23.70,Sub,,0,0,0,,The two paper strips are the seafloor on either side of it.
+Dialogue: 0,0:00:21.60,0:00:25.10,Anno,,0,0,0,,{\an6\pos(520,640)\fad(200,200)}Mid-ocean ridge
+Dialogue: 0,0:00:21.70,0:00:23.80,Anno,,0,0,0,,{\an4\pos(1290,560)\fad(200,200)}Seafloor (paper strips)
+Dialogue: 0,0:00:21.75,0:00:25.10,Arrow,,0,0,0,,{\an7\pos(0,0)\fad(250,200)\p1}m 528 643 l 909 803 905 813 934 810 916 786 912 796 531 636{\p0}
+Dialogue: 0,0:00:21.85,0:00:23.80,Arrow,,0,0,0,,{\an7\pos(0,0)\fad(250,200)\p1}m 1277 572 l 1175 702 1167 696 1162 725 1189 713 1181 707 1282 577{\p0}
 Dialogue: 0,0:00:23.90,0:00:26.90,Sub,,0,0,0,,When I pull the strips outward, new paper comes out from here,
+Dialogue: 0,0:00:25.40,0:00:29.60,Anno,,0,0,0,,{\an4\pos(1290,600)\fad(200,200)}New crust forms here
+Dialogue: 0,0:00:25.40,0:00:29.60,Glow,,0,0,0,,{\an7\pos(970,763)\blur14\alpha&H50&\fad(250,250)\t(0,500,\alpha&HB0&)\t(500,1000,\alpha&H50&)\t(1000,1500,\alpha&HB0&)\t(1500,2000,\alpha&H50&)\t(2000,2500,\alpha&HB0&)\t(2500,3000,\alpha&H50&)\t(3000,3500,\alpha&HB0&)\t(3500,4000,\alpha&H50&)\t(4000,4500,\alpha&HB0&)\t(4500,5000,\alpha&H50&)\p1}m 0 -46 b 25 -46 46 -25 46 0 b 46 25 25 46 0 46 b -25 46 -46 25 -46 0 b -46 -25 -25 -46 0 -46{\p0}
+Dialogue: 0,0:00:25.55,0:00:29.60,Arrow,,0,0,0,,{\an7\pos(0,0)\fad(250,200)\p1}m 1278 611 l 1020 732 1015 722 997 746 1027 748 1023 738 1281 618{\p0}
 Dialogue: 0,0:00:27.10,0:00:29.60,Sub,,0,0,0,,just like new oceanic crust forming at the ridge.
 Dialogue: 0,0:00:29.70,0:00:33.90,Sub,,0,0,0,,As the rock cools, it records the direction of Earth's magnetic field at that time.
+Dialogue: 0,0:00:31.40,0:00:33.90,Anno,,0,0,0,,{\an4\pos(1290,470)\fad(200,200)}Stripes = magnetic polarity
+Dialogue: 0,0:00:31.55,0:00:33.90,Arrow,,0,0,0,,{\an7\pos(0,0)\fad(250,200)\p1}m 1277 482 l 1148 572 1141 564 1128 590 1158 587 1152 578 1282 487{\p0}
 Dialogue: 0,0:00:33.95,0:00:38.05,Sub,,0,0,0,,The magnetic patterns on the two strips are perfectly symmetric.
+Dialogue: 0,0:00:34.80,0:00:38.05,Anno,,0,0,0,,{\an6\pos(540,560)\fad(200,200)}Matching patterns
+Dialogue: 0,0:00:34.95,0:00:38.05,Arrow,,0,0,0,,{\an7\pos(0,0)\fad(250,200)\p1}m 548 585 l 731 656 728 666 757 662 738 639 734 649 551 578{\p0}
+Dialogue: 0,0:00:34.95,0:00:38.05,Arrow,,0,0,0,,{\an7\pos(0,0)\fad(250,200)\p1}m 550 551 l 707 515 710 525 732 506 703 498 706 508 549 544{\p0}
 Dialogue: 0,0:00:38.15,0:00:43.10,Sub,,0,0,0,,Now suppose this stripe is 100 km from the ridge and 5 million years old.
 Dialogue: 0,0:00:43.15,0:00:45.90,Sub,,0,0,0,,Then the half-spreading rate is 100 km ÷ 5 million years,
 Dialogue: 0,0:00:43.15,0:00:47.50,Eq,,0,0,0,,{\an8\pos(960,56)}{\fad(250,0)}100 km ÷ 5 Myr = 2 cm/yr

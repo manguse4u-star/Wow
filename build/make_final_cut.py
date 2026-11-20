@@ -9,7 +9,7 @@ import os
 import subprocess
 import sys
 
-PPT, DEMO, CLOSING, OUT = sys.argv[1:5]
+PPT, DEMO, CLOSING, OUT, BGM = sys.argv[1:6]
 HERE = os.path.dirname(os.path.abspath(__file__))
 SUB = os.path.join(HERE, "..", "deliverables", "subtitles")
 TMP = os.environ.get("TMPDIR_CUT", "/tmp")
@@ -82,6 +82,51 @@ ev.append((remap(21.4, PPT_KEEP), P, "Credit", r"{\an9\pos(1835,768)}", "Simulat
 t_eq = OFF_DEMO + remap(29.05, DEMO_KEEP)
 ev.append((t_eq, OFF_DEMO + D, "Eq", r"{\an8\pos(960,56)}", "100 km ÷ 5 Myr = 2 cm/yr"))
 
+# ---- on-camera annotations: arrows + labels + glow at the ridge ----------
+import math
+SC, OX = 1080 / 1280, (1920 - 720 * 1080 / 1280) / 2   # demo frame -> final frame
+def fx(x): return OX + SC * x
+def fy(y): return SC * y
+def demo_t(t): return OFF_DEMO + remap(t, DEMO_KEEP)
+
+def arrow(x0, y0, x1, y1, w=7, head=26):
+    L = math.hypot(x1 - x0, y1 - y0); ux, uy = (x1 - x0) / L, (y1 - y0) / L; px, py = -uy, ux
+    bx, by = x1 - ux * head, y1 - uy * head
+    pts = [(x0 + px * w / 2, y0 + py * w / 2), (bx + px * w / 2, by + py * w / 2), (bx + px * head * 0.55, by + py * head * 0.55),
+           (x1, y1), (bx - px * head * 0.55, by - py * head * 0.55), (bx - px * w / 2, by - py * w / 2), (x0 - px * w / 2, y0 - py * w / 2)]
+    return "m %d %d " % pts[0] + "l " + " ".join("%d %d" % p for p in pts[1:])
+
+def circle(r):
+    k = 0.5523 * r
+    return (f"m 0 {-r} b {k:.0f} {-r} {r} {-k:.0f} {r} 0 b {r} {k:.0f} {k:.0f} {r} 0 {r} "
+            f"b {-k:.0f} {r} {-r} {k:.0f} {-r} 0 b {-r} {-k:.0f} {-k:.0f} {-r} 0 {-r}")
+
+def annotate(t0, t1, label, lx, ly, align, tips):
+    """label at (lx,ly) [final px]; arrows from label side to each tip (orig demo px)."""
+    a, b = demo_t(t0), demo_t(t1)
+    ev.append((a, b, "Anno", r"{\an%d\pos(%d,%d)\fad(200,200)}" % (align, lx, ly), label))
+    for (tx, ty), (sx, sy) in tips:
+        d = arrow(sx, sy, fx(tx), fy(ty))
+        ev.append((a + 0.15, b, "Arrow", r"{\an7\pos(0,0)\fad(250,200)\p1}", d + r"{\p0}"))
+
+def glow(t0, t1, x, y, r=46):
+    a, b = demo_t(t0), demo_t(t1)
+    pulses = "".join(r"\t(%d,%d,\alpha&HB0&)\t(%d,%d,\alpha&H50&)" % (i * 1000, i * 1000 + 500, i * 1000 + 500, i * 1000 + 1000)
+                     for i in range(int(b - a) + 1))
+    ev.append((a, b, "Glow", r"{\an7\pos(%d,%d)\blur14\alpha&H50&\fad(250,250)%s\p1}" % (fx(x), fy(y), pulses), circle(r) + r"{\p0}"))
+
+# 1) the cardboard ridge (stands on the desk from ~2.8 s)
+annotate(2.8, 6.3, "Mid-ocean ridge", 520, 640, 6, [((330, 960), (530, 640))])
+# 2) the two paper strips = seafloor on each side
+annotate(2.9, 5.0, "Seafloor (paper strips)", 1290, 560, 4, [((600, 860), (1280, 575))])
+# 3) new crust appears at the ridge as the strips are pulled out
+glow(6.6, 10.9, 372, 905)
+annotate(6.6, 10.9, "New crust forms here", 1290, 600, 4, [((405, 885), (1280, 615))])
+# 4) stripes record the field when the rock cools
+annotate(13.0, 16.7, "Stripes = magnetic polarity", 1290, 470, 4, [((560, 700), (1280, 485))])
+# 5) matching patterns on both strips
+annotate(19.2, 22.45, "Matching patterns", 540, 560, 6, [((90, 600), (550, 548)), ((120, 785), (550, 582))])
+
 ass = """[Script Info]
 ScriptType: v4.00+
 PlayResX: 1920
@@ -93,13 +138,16 @@ Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour,
 Style: Sub,Liberation Sans,44,&H00FFFFFF,&H00FFFFFF,&H64000000,&H64000000,1,0,0,0,100,100,0,0,3,8,0,2,115,115,40,1
 Style: Label,Liberation Sans,34,&H00F0E6DC,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
 Style: Credit,Liberation Sans,22,&H00C8B39F,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,9,0,0,0,1
+Style: Anno,Liberation Sans,38,&H00FFFFFF,&H00FFFFFF,&H402A1A0A,&H802A1A0A,1,0,0,0,100,100,0,0,3,12,0,5,0,0,0,1
+Style: Arrow,Liberation Sans,20,&H00D6E62E,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: Glow,Liberation Sans,20,&H004AC1FF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
 Style: Eq,Liberation Sans,60,&H00FFFFFF,&H00FFFFFF,&H82000000,&H82000000,1,0,0,0,100,100,0,0,3,18,0,8,0,0,0,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
 for a, b, st, tag, s in sorted(ev):
-    fade = r"{\fad(250,0)}" if st != "Sub" else ""
+    fade = r"{\fad(250,0)}" if st in ("Label", "Credit", "Eq") else ""
     ass += f"Dialogue: 0,{at(a)},{at(b)},{st},,0,0,0,,{tag}{fade}{s}\n"
 ass_path = os.path.join(SUB, "final_cut_v4.ass")
 open(ass_path, "w").write(ass)
@@ -137,13 +185,13 @@ g.append(f"[2:v]trim=0:{CLOSING_LEN},setpts=PTS-STARTPTS,fps=30,format=yuv420p,s
 clean = "highpass=f=80,afftdn=nf=-25,loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000"
 g.append(f"[pa0]{clean}[pa]")
 g.append(f"[da0]{clean}[da]")
-g.append(f"[3:a]atrim=0:{CLOSING_LEN},aformat=channel_layouts=stereo[ca]")
+g.append(f"[3:a]atrim=0:{CLOSING_LEN},aresample=48000,aformat=channel_layouts=stereo,loudnorm=I=-26:TP=-6:LRA=7,aresample=48000[ca]")
 g.append(f"[pv2][dv2]xfade=transition=fade:duration={XF}:offset={OFF_DEMO:.3f}[x1];"
          f"[x1][cv]xfade=transition=fade:duration={XF}:offset={OFF_CLOSE:.3f},ass={ass_path}[v]")
 g.append(f"[pa][da]acrossfade=d={XF}[y1];[y1][ca]acrossfade=d={XF}[a]")
 
 cmd = ["ffmpeg", "-v", "error", "-y", "-i", PPT, "-i", DEMO, "-i", CLOSING,
-       "-f", "lavfi", "-t", str(CLOSING_LEN), "-i", "anullsrc=r=48000:cl=stereo",
+       "-i", BGM,
        "-filter_complex", ";".join(g), "-map", "[v]", "-map", "[a]",
        "-c:v", "libx264", "-crf", "18", "-preset", "medium", "-c:a", "aac", "-b:a", "192k",
        "-movflags", "+faststart", OUT]
